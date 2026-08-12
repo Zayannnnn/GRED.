@@ -1,0 +1,171 @@
+body {
+      background-color: #fcf8f2;
+      color: #1e293b;
+      font-family: 'Outfit', sans-serif;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+    }
+
+    .success-bg-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .success-glow-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.35;
+      background: radial-gradient(circle, rgba(247, 166, 0, 0.3) 0%, transparent 70%);
+      width: 60vw;
+      height: 60vw;
+      top: 20%;
+      left: 20%;
+    }
+
+    .success-dots-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(247, 166, 0, 0.08) 1.2px, transparent 1.2px);
+      background-size: 30px 30px;
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    /* Centered Success Card Container */
+    .success-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 5%;
+      z-index: 5;
+      box-sizing: border-box;
+    }
+
+    .success-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 36px;
+      padding: 60px 48px;
+      max-width: 580px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.08);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .success-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #f7a600, #ffb81c);
+      border-radius: 36px 36px 0 0;
+    }
+
+    /* Premium Checkmark Animation */
+    .checkmark-wrapper {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.08);
+      border: 2px solid rgba(16, 185, 129, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #10b981;
+      margin: 0 auto 32px;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.1);
+      animation: checkPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+
+    .checkmark-wrapper svg {
+      width: 44px;
+      height: 44px;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: drawCheck 0.6s 0.3s cubic-bezier(0.25, 0.25, 0.25, 1) forwards;
+    }
+
+    @keyframes checkPop {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes drawCheck {
+      to { stroke-dashoffset: 0; }
+    }
+
+    .success-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.15rem);
+      font-weight: 900;
+      color: #111111;
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+      margin: 0 0 16px 0;
+    }
+
+    .success-desc {
+      font-size: 1.02rem;
+      line-height: 1.6;
+      color: #475569;
+      margin: 0 0 36px 0;
+    }
+
+    .return-home-btn {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 36px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #111111 0%, #1f2937 100%);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .return-home-btn:hover {
+      background: linear-gradient(135deg, #f7a600 0%, #ea580c 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(247, 166, 0, 0.3);
+    }
+
+    .success-footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.05);
+      background: #ffffff;
+      padding: 24px 5%;
+      text-align: center;
+      font-size: 0.88rem;
+      color: #64748b;
+      z-index: 5;
+    }
+
+    @media (max-width: 768px) {
+      .success-card {
+        padding: 40px 24px;
+        border-radius: 28px;
+      }
+    }

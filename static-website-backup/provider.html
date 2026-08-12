@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Become a Service Partner - GRED Trusted Hyperlocal Network</title>
+  
+  <!-- Preconnect and Outfit Google Font -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#F59E0B" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- Main Stylesheet Link -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Provider Page Specific CSS Stylesheet -->
+  <style>
+    body {
+      background-color: #fcf8f2;
+      color: #1e293b;
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Ambient Glowing Blob Background System */
+    .provider-bg-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .provider-glow-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      opacity: 0.38;
+      animation: driftSlow 20s infinite alternate ease-in-out;
+    }
+
+    .provider-glow-blob.blob-1 {
+      width: 55vw;
+      height: 55vw;
+      background: radial-gradient(circle, rgba(247, 166, 0, 0.26) 0%, transparent 70%);
+      top: -5%;
+      left: -10%;
+    }
+
+    .provider-glow-blob.blob-2 {
+      width: 50vw;
+      height: 50vw;
+      background: radial-gradient(circle, rgba(234, 88, 12, 0.22) 0%, transparent 70%);
+      bottom: 10%;
+      right: -10%;
+      animation-delay: -6s;
+    }
+
+    .provider-dots-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(247, 166, 0, 0.09) 1.2px, transparent 1.2px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    /* Header Nav Bar Styling */
+    .provider-header {
+      width: 100%;
+      padding: 24px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 100;
+    }
+
+    .provider-brand-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .provider-brand-text {
+      font-size: 2.1rem;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      display: inline-block;
+      padding-right: 6px;
+      background: linear-gradient(135deg, #111111 0%, #334155 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .back-home-btn {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1e293b;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .back-home-btn:hover {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Two-Column Layout Section */
+    .provider-main-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 40px 8% 100px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(460px, 520px);
+      gap: 60px;
+      position: relative;
+      z-index: 10;
+      align-items: flex-start;
+    }
+
+    /* LEFT SIDE: Heading & Badges */
+    .provider-left-hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .provider-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(247, 166, 0, 0.09);
+      border: 1px solid rgba(247, 166, 0, 0.2);
+      color: #ea580c;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+      width: fit-content;
+      box-shadow: 0 4px 15px rgba(247, 166, 0, 0.03);
+    }
+
+    .provider-hero-title {
+      font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+      font-weight: 900;
+      color: #111111;
+      line-height: 1.15;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .provider-hero-title span {
+      color: #ea580c;
+    }
+
+    .provider-hero-desc {
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      line-height: 1.6;
+      color: #475569;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+
+    /* Trust Metric Badge Grid */
+    .provider-trust-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .provider-trust-card {
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(247, 166, 0, 0.12);
+      border-radius: 20px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 6px 20px rgba(247, 166, 0, 0.03);
+      transition: all 0.3s ease;
+    }
+
+    .provider-trust-card:hover {
+      transform: translateX(6px);
+      background: rgba(255, 255, 255, 0.88);
+      border-color: rgba(247, 166, 0, 0.35);
+      box-shadow: 0 8px 24px rgba(247, 166, 0, 0.08);
+    }
+
+    .provider-trust-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(247, 166, 0, 0.08);
+      border: 1px solid rgba(247, 166, 0, 0.18);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ea580c;
+      flex-shrink: 0;
+    }
+
+    .provider-trust-card:hover .provider-trust-icon {
+      background: #ea580c;
+      color: #ffffff;
+      border-color: #ea580c;
+      box-shadow: 0 4px 10px rgba(234, 88, 12, 0.25);
+    }
+
+    .provider-trust-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2.2;
+    }
+
+    .provider-trust-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .provider-trust-heading {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .provider-trust-desc {
+      font-size: 0.85rem;
+      color: #64748b;
+      line-height: 1.4;
+    }
+
+    /* Vector SVG Service Dispatch Illustration */
+    .provider-illustration {
+      width: 100%;
+      max-width: 420px;
+      margin: 20px auto 0;
+      display: block;
+      filter: drop-shadow(0 20px 40px rgba(255, 178, 0, 0.1));
+    }
+
+    /* RIGHT SIDE: Application Form Card */
+    .provider-right-form {
+      position: sticky;
+      top: 40px;
+    }
+
+    .provider-form-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 28px;
+      padding: 44px 38px;
+      box-shadow: 0 28px 75px rgba(15, 23, 42, 0.08);
+      position: relative;
+      overflow: visible;
+    }
+
+    .provider-form-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      border-radius: 28px 28px 0 0;
+      background: linear-gradient(90deg, #f7a600, #ffbf1a);
+    }
+
+    .provider-form-title {
+      font-size: 1.48rem;
+      font-weight: 800;
+      color: #111111;
+      margin-bottom: 28px;
+      letter-spacing: -0.5px;
+    }
+
+    .provider-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #1e293b;
+      letter-spacing: 0.02em;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      background: rgba(255, 255, 255, 0.6);
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: #0f172a;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: #94a3b8;
+      font-size: 0.88rem;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: #f7a600;
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(247, 166, 0, 0.12), 0 4px 12px rgba(247, 166, 0, 0.05);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    /* Premium submit button */
+    .submit-btn {
+      width: 100%;
+      padding: 15px 32px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 178, 0, 0.15);
+      background: #f7a600;
+      color: #111111;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(247, 166, 0, 0.2);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .submit-btn:hover {
+      background: #FFA500;
+      color: #000000;
+      border-color: #FFA500;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255, 178, 0, 0.35);
+    }
+
+    /* Footer styling */
+    .provider-footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.06);
+      background: #ffffff;
+      padding: 28px 8%;
+      text-align: center;
+      font-size: 0.88rem;
+      color: #64748b;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Floating keyframe blurs */
+    @keyframes driftSlow {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(4vw, -2vh) scale(1.05); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .provider-main-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding-bottom: 70px;
+      }
+      .provider-left-hero {
+        text-align: center;
+        align-items: center;
+      }
+      .provider-tag {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .provider-trust-grid {
+        max-width: 600px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .provider-right-form {
+        position: relative;
+        top: 0;
+        max-width: 650px;
+        width: 100%;
+        margin: 0 auto;
+      }
+      .provider-illustration {
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .provider-header {
+        padding: 20px 5%;
+      }
+      .provider-main-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        gap: 40px;
+      }
+      .provider-form-card {
+        padding: 34px 20px;
+        border-radius: 24px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Glow Background Blobs -->
+  <div class="provider-bg-wrapper">
+    <div class="provider-glow-blob blob-1" aria-hidden="true"></div>
+    <div class="provider-glow-blob blob-2" aria-hidden="true"></div>
+    <div class="provider-dots-grid" aria-hidden="true"></div>
+  </div>
+
+  <!-- Page Header Nav -->
+  <header class="provider-header">
+    <a class="provider-brand-link" href="/" aria-label="GRED home">
+      <span class="provider-brand-text">GRED</span>
+    </a>
+    <a href="/" class="back-home-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back to Home
+    </a>
+  </header>
+
+  <!-- Split Grid Container -->
+  <main class="provider-main-container">
+    
+    <!-- LEFT SIDE: Text and Trust Indicators -->
+    <section class="provider-left-hero" aria-label="GRED partner advantages">
+      <span class="provider-tag">Become a Service Partner</span>
+      <h1 class="provider-hero-title">Become a <span>Service Partner</span></h1>
+      <p class="provider-hero-desc">
+        Join GRED’s trusted provider network and connect your company with customers across Kerala. Access endless local demand, organize bookings seamlessly, and scale your service revenue.
+      </p>
+
+      <!-- Trust Badges List -->
+      <div class="provider-trust-grid">
+        <div class="provider-trust-card">
+          <div class="provider-trust-icon" aria-hidden="true">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <div class="provider-trust-text">
+            <h3 class="provider-trust-heading">100% Pre-Verified Jobs</h3>
+            <p class="provider-trust-desc">All user requests are pre-screened with confirmed addresses and details before dispatch.</p>
+          </div>
+        </div>
+
+        <div class="provider-trust-card">
+          <div class="provider-trust-icon" aria-hidden="true">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="provider-trust-text">
+            <h3 class="provider-trust-heading">Direct & Secure Payouts</h3>
+            <p class="provider-trust-desc">Receive clear, hassle-free automated deposits directly into your bank account with complete transparency.</p>
+          </div>
+        </div>
+
+        <div class="provider-trust-card">
+          <div class="provider-trust-icon" aria-hidden="true">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="provider-trust-text">
+            <h3 class="provider-trust-heading">Flexible Operational Hours</h3>
+            <p class="provider-trust-desc">You hold the wheel. Choose exactly when your crews are active and take jobs on your schedule.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vector SVG Service Partner Illustration -->
+      <svg class="provider-illustration" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="illamber" x1="0%" x2="100%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFB200" />
+            <stop offset="100%" stop-color="#ea580c" />
+          </linearGradient>
+          <linearGradient id="illgray" x1="0%" x2="100%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff" />
+            <stop offset="100%" stop-color="#e2e8f0" />
+          </linearGradient>
+        </defs>
+        <!-- Isometric Base Grid -->
+        <path d="M50 250 L250 150 L450 250 L250 350 Z" fill="rgba(247,166,0,0.04)" stroke="rgba(247,166,0,0.15)" stroke-width="2" />
+        <path d="M100 225 L250 150 L400 225" stroke="rgba(247,166,0,0.1)" stroke-width="1" />
+        <path d="M100 275 L250 350 L400 275" stroke="rgba(247,166,0,0.1)" stroke-width="1" />
+        
+        <!-- Smart Hub Nodes -->
+        <circle cx="250" cy="150" r="10" fill="url(#illamber)" />
+        <circle cx="250" cy="150" r="22" stroke="#FFB200" stroke-width="2" opacity="0.4" stroke-dasharray="4 4" />
+        <circle cx="250" cy="350" r="8" fill="url(#illamber)" />
+        <circle cx="50" cy="250" r="6" fill="#ea580c" />
+        <circle cx="450" cy="250" r="6" fill="#ea580c" />
+
+        <!-- Routing Vectors (Active path lines) -->
+        <path d="M50 250 L250 150 M450 250 L250 150 M250 350 L250 150" stroke="url(#illamber)" stroke-width="3" stroke-linecap="round" />
+
+        <!-- Floating Isometric Application Dashboard -->
+        <g transform="translate(140, 170)">
+          <!-- Glass Card Behind -->
+          <path d="M10 50 L110 0 L210 50 L110 100 Z" fill="rgba(255,255,255,0.82)" stroke="rgba(255,255,255,0.9)" stroke-width="2" />
+          <path d="M10 55 L110 5 L210 55 L110 105 Z" fill="rgba(247,166,0,0.06)" />
+          
+          <!-- Micro UI details -->
+          <path d="M40 45 L110 10 M110 10 L180 45" stroke="#94a3b8" stroke-width="3" stroke-linecap="round" />
+          <path d="M50 65 L110 35 M110 35 L170 65" stroke="url(#illamber)" stroke-width="4" stroke-linecap="round" />
+          
+          <!-- Floating Smart Service Tokens -->
+          <circle cx="110" cy="10" r="12" fill="#10b981" />
+          <path d="M105 10 L108 13 L115 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          
+          <!-- Animated Scooter Spark -->
+          <circle cx="80" cy="40" r="5" fill="#FFB200" />
+          <circle cx="140" cy="50" r="5" fill="#ea580c" />
+        </g>
+      </svg>
+    </section>
+
+    <!-- RIGHT SIDE: Application Form Card -->
+    <section class="provider-right-form" aria-label="GRED partner registration form">
+      <div class="provider-form-card">
+        <h2 class="provider-form-title">Partner Application Form</h2>
+        
+        <form class="provider-form" action="https://api.web3forms.com/submit" method="POST">
+          
+          <!-- Hidden inputs for Web3Forms -->
+          <input type="hidden" name="access_key" value="88ebc932-5173-4c09-a4b0-f37e152723a0" />
+          <input type="checkbox" name="botcheck" style="display:none" />
+          <input type="hidden" name="_subject" value="New Provider Application - GRED" />
+          <input type="hidden" name="redirect" value="provider-thankyou.html" />
+
+          <!-- Form Fields Grid Row -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="full-name">Full Name *</label>
+              <input class="form-input" type="text" id="full-name" name="Full Name" placeholder="Enter your full name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone-number">Phone Number *</label>
+              <input class="form-input" type="tel" id="phone-number" name="Phone Number" placeholder="+91 98XXXXXXXX" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address *</label>
+              <input class="form-input" type="email" id="email" name="Email Address" placeholder="yourcompany@gmail.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="company-name">Company Name *</label>
+              <input class="form-input" type="text" id="company-name" name="Company Name" placeholder="ABC Facility Services" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="company-location">Company Location *</label>
+              <input class="form-input" type="text" id="company-location" name="Company Location" placeholder="Kakkanad, Kochi" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="services-provided">Services Provided *</label>
+              <input class="form-input" type="text" id="services-provided" name="Services Provided" placeholder="Cleaning, Plumbing, Electrical" required />
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label" for="message">Message / Additional Details</label>
+            <textarea class="form-textarea" id="message" name="Message" placeholder="Tell us about your company and services"></textarea>
+          </div>
+
+          <!-- Premium Submit Button -->
+          <button class="submit-btn" type="submit">
+            Submit Application
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="provider-footer">
+    <p>&copy; 2026 GRED. All rights reserved. Made in Kerala for a smarter future.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,446 @@
+/* Reset & Typography inherits from style.css, overriding specifically for page theme */
+    body {
+      background-color: #fcf8f2;
+      color: #1e293b;
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Full-Bleed Elegant background system */
+    .invest-bg-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .invest-glow-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.35;
+      animation: driftSlow 25s infinite alternate ease-in-out;
+    }
+
+    .invest-glow-blob.blob-1 {
+      width: 60vw;
+      height: 60vw;
+      background: radial-gradient(circle, rgba(247, 166, 0, 0.25) 0%, transparent 70%);
+      top: -10%;
+      left: -10%;
+    }
+
+    .invest-glow-blob.blob-2 {
+      width: 50vw;
+      height: 50vw;
+      background: radial-gradient(circle, rgba(234, 88, 12, 0.2) 0%, transparent 70%);
+      bottom: 20%;
+      right: -10%;
+      animation-delay: -5s;
+    }
+
+    .invest-glow-blob.blob-3 {
+      width: 45vw;
+      height: 45vw;
+      background: radial-gradient(circle, rgba(255, 170, 0, 0.15) 0%, transparent 70%);
+      top: 30%;
+      left: 25%;
+      animation: driftSlow 30s infinite alternate-reverse ease-in-out;
+      animation-delay: -2s;
+    }
+
+    .invest-dots-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(247, 166, 0, 0.08) 1.2px, transparent 1.2px);
+      background-size: 30px 30px;
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    /* Header adjustments to support back navigation */
+    .invest-header {
+      width: 100%;
+      padding: 24px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 100;
+    }
+
+    .invest-brand-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .invest-brand-text {
+      font-size: 1.88rem;
+      font-weight: 900;
+      letter-spacing: -1.2px;
+      display: inline-block;
+      padding-right: 6px;
+      background: linear-gradient(135deg, #111111 0%, #334155 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .back-home-btn {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1e293b;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .back-home-btn:hover {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Centered Hero Section style */
+    .invest-hero {
+      padding: 80px 8% 60px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .invest-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(247, 166, 0, 0.08);
+      border: 1px solid rgba(247, 166, 0, 0.18);
+      color: #ea580c;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 15px rgba(247, 166, 0, 0.03);
+    }
+
+    .invest-hero-title {
+      font-size: clamp(2.3rem, 5.5vw, 4.2rem);
+      font-weight: 900;
+      color: #111111;
+      line-height: 1.15;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .invest-hero-title span {
+      color: #ea580c;
+    }
+
+    .invest-hero-desc {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      line-height: 1.65;
+      color: #475569;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    /* Stat Cards Grid Layout */
+    .invest-stats-padding {
+      padding: 60px 8% 90px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .invest-section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .invest-section-title {
+      font-size: clamp(1.9rem, 3.8vw, 2.6rem);
+      font-weight: 900;
+      color: #111111;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .invest-section-subtitle {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: #64748b;
+    }
+
+    .invest-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .invest-stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(247, 166, 0, 0.14);
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: 
+        0 10px 30px rgba(247, 166, 0, 0.04), 
+        0 1px 3px rgba(0, 0, 0, 0.02);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .invest-stat-card:hover {
+      transform: translateY(-5px); /* Elegant slight lift ONLY */
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(247, 166, 0, 0.35);
+      box-shadow: 
+        0 20px 45px rgba(247, 166, 0, 0.12),
+        0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .invest-stat-illustration {
+      width: 100%;
+      height: 110px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .invest-stat-illustration svg {
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      transition: all 0.4s ease;
+      filter: drop-shadow(0 8px 16px rgba(247, 166, 0, 0.06));
+    }
+
+    .invest-stat-card:hover .invest-stat-illustration svg {
+      transform: scale(1.03);
+      filter: drop-shadow(0 12px 24px rgba(247, 166, 0, 0.14));
+    }
+
+    .invest-stat-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #111111;
+      margin-bottom: 10px;
+      letter-spacing: -0.4px;
+      line-height: 1.25;
+    }
+
+    .invest-stat-desc {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: #475569;
+    }
+
+    /* Professional Form Section style */
+    .invest-form-section {
+      padding: 40px 8% 120px;
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .invest-form-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 36px;
+      padding: 56px 48px;
+      box-shadow: 0 28px 75px rgba(15, 23, 42, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .invest-form-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #f7a600, #ffb81c);
+    }
+
+    .invest-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .invest-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .invest-form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .invest-form-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #1e293b;
+      letter-spacing: 0.02em;
+    }
+
+    .invest-form-input, .invest-form-select, .invest-form-textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      background: rgba(255, 255, 255, 0.6);
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: #0f172a;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .invest-form-input:focus, .invest-form-select:focus, .invest-form-textarea:focus {
+      outline: none;
+      border-color: #f7a600;
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(247, 166, 0, 0.12), 0 4px 12px rgba(247, 166, 0, 0.05);
+    }
+
+    .invest-form-textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .invest-submit-btn {
+      width: 100%;
+      padding: 16px 32px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 178, 0, 0.15);
+      background: #f7a600;
+      color: #111111;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(247, 166, 0, 0.25);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .invest-submit-btn:hover {
+      background: #FFA500;
+      color: #000000;
+      border-color: #FFA500;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(255, 178, 0, 0.38);
+    }
+
+    /* Footer styling */
+    .invest-footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.06);
+      background: #ffffff;
+      padding: 30px 8%;
+      text-align: center;
+      font-size: 0.88rem;
+      color: #64748b;
+    }
+
+    /* Floating keyframe blurs */
+    @keyframes driftSlow {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(6vw, -3vh) scale(1.06); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .invest-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .invest-stat-card {
+        padding: 28px 22px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .invest-header {
+        padding: 16px 5%;
+      }
+      .invest-hero {
+        padding: 40px 5% 30px;
+      }
+      .invest-stats-padding {
+        padding: 30px 5% 40px; /* Reduced vertical spacing to avoid empty whitespace */
+      }
+      .invest-section-header {
+        margin-bottom: 24px; /* Tighter heading-grid spacing */
+      }
+      .invest-form-section {
+        padding: 20px 5% 80px;
+      }
+      .invest-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px; /* Snugger layout gap */
+      }
+      .invest-stat-card {
+        padding: 20px; /* Compact padding to remove dead space */
+        border-radius: 22px;
+        text-align: center; /* Beautiful center alignment on mobile */
+      }
+      .invest-stat-illustration {
+        height: 90px; /* Highly compact illustration height on mobile */
+        margin-bottom: 12px;
+      }
+      .invest-stat-title {
+        font-size: 1.12rem;
+        margin-bottom: 6px;
+      }
+      .invest-stat-desc {
+        font-size: 0.85rem;
+        line-height: 1.45;
+      }
+      .invest-form-card {
+        padding: 30px 20px;
+        border-radius: 24px;
+      }
+      .invest-form-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .invest-form-group.full-width {
+        grid-column: span 1;
+      }
+    }

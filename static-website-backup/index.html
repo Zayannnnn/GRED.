@@ -1,0 +1,1572 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GRED – Professional On-Demand Home Services at Your Doorstep</title>
+  <meta name="description"
+    content="GRED is a premium hyperlocal service marketplace connecting you with vetted, background-checked local professionals for cleaning, plumbing, electrical, car service, painting, and essential home needs." />
+
+  <!-- Favicon configurations -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#F59E0B" />
+
+  <!-- Outfit Font & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=6" />
+</head>
+
+<body>
+  <!-- Fixed Background System -->
+  <div class="bg-glow">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+  <div class="particles" id="particles"></div>
+
+  <!-- Site Header -->
+  <header class="site-header" id="site-header">
+    <div class="site-header-inner">
+      <a class="brand-link" href="/" data-scroll-target="hero-section" aria-label="GRED home">
+        <span class="brand-text">GRED</span>
+      </a>
+
+      <nav class="site-nav-links" aria-label="Primary navigation">
+        <a href="/?scroll=about" data-scroll-target="about">About</a>
+        <a href="/?scroll=services" data-scroll-target="services">Services</a>
+        <a href="/?scroll=how-it-works" data-scroll-target="how-it-works">Workflow</a>
+        <a href="/?scroll=why-choose" data-scroll-target="why-choose">Features</a>
+        <a href="/?scroll=trust-safety" data-scroll-target="trust-safety">Safety</a>
+        <a href="/?scroll=testimonials" data-scroll-target="testimonials">Reviews</a>
+        <a href="/?scroll=faq" data-scroll-target="faq">FAQ</a>
+        <a href="invest.html" class="nav-invest-btn">Invest In Us</a>
+      </nav>
+
+      <div class="site-header-actions">
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-drawer" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-content" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <div class="mobile-drawer-header">
+        <a class="brand-link" href="/" data-scroll-target="hero-section" aria-label="GRED home">
+          <span class="brand-text">GRED</span>
+        </a>
+        <button class="drawer-close" id="mobile-drawer-close" type="button" aria-label="Close navigation menu">&times;</button>
+      </div>
+      <nav class="mobile-nav-links" aria-label="Mobile navigation links">
+        <a href="/?scroll=about" data-scroll-target="about">About</a>
+        <a href="/?scroll=services" data-scroll-target="services">Services</a>
+        <a href="/?scroll=how-it-works" data-scroll-target="how-it-works">Workflow</a>
+        <a href="/?scroll=why-choose" data-scroll-target="why-choose">Features</a>
+        <a href="/?scroll=trust-safety" data-scroll-target="trust-safety">Safety</a>
+        <a href="/?scroll=testimonials" data-scroll-target="testimonials">Reviews</a>
+        <a href="/?scroll=faq" data-scroll-target="faq">FAQ</a>
+        <a href="invest.html" class="nav-invest-btn">Invest In Us</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Scrollable Content Wrapper -->
+  <div class="content-wrapper">
+
+    <!-- HERO SECTION -->
+    <main class="scene" id="hero-section">
+      <div class="hero-ambient hero-ambient-one" aria-hidden="true"></div>
+      <div class="hero-ambient hero-ambient-two" aria-hidden="true"></div>
+
+      <div class="hero-split-container">
+        <section class="hero-left" aria-label="GRED marketplace introduction">
+          <h1 class="hero-heading">Professional On-Demand Home Services at Your Doorstep.</h1>
+          <p class="hero-subtitle">GRED is a city-based service marketplace platform that connects customers with trusted local service providers.</p>
+          <div class="hero-cta-group" aria-label="Primary actions">
+            <a class="btn-hero btn-secondary" id="btn-hero-partner" href="provider.html">Become a Partner</a>
+          </div>
+          <div class="hero-app-badges" aria-label="Download the GRED app">
+            <a href="javascript:void(0)" class="app-badge app-store" aria-label="Download on the App Store">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.22.67-2.94 1.52-.63.73-1.18 1.87-1.03 2.97 1.12.09 2.27-.56 2.98-1.43Z"/>
+              </svg>
+              <div class="badge-text">
+                <span>Download on the</span>
+                <strong>App Store</strong>
+              </div>
+            </a>
+            <a href="javascript:void(0)" class="app-badge google-play" aria-label="Get it on Google Play">
+              <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+              </svg>
+              <div class="badge-text">
+                <span>GET IT ON</span>
+                <strong>Google Play</strong>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section class="hero-right" aria-label="Animated GRED live marketplace">
+          <div class="hero-canvas-wrap">
+            <div class="hero-dashboard-wrapper">
+              <!-- 2. Dashboard Container -->
+              <div class="hero-dashboard-container">
+              <div class="hero-glow-blob glow-1" aria-hidden="true"></div>
+              <div class="hero-glow-blob glow-2" aria-hidden="true"></div>
+              <div class="hero-canvas" id="hero-canvas">
+              <svg class="city-svg-bg" viewBox="0 0 520 520" role="img" aria-label="Animated smart city dispatch map">
+                <defs>
+                  <linearGradient id="amberRoad" x1="0%" x2="100%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#FFB200" />
+                    <stop offset="52%" stop-color="#FFC933" />
+                    <stop offset="100%" stop-color="#F5A623" />
+                  </linearGradient>
+                  <linearGradient id="glassTower" x1="0%" x2="100%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#ffffff" />
+                    <stop offset="100%" stop-color="#f8fafc" />
+                  </linearGradient>
+                  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="10" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <!-- City Grid Passive Roads (Very faint soft route network) -->
+                <g class="city-grid">
+                  <path d="M74 348 C114 312 160 282 210 256 S292 234 340 196" />
+                  <path d="M104 304 C148 272 190 246 236 226" />
+                  <path d="M156 384 C214 336 260 316 322 298" />
+                  <path d="M148 190 C206 220 254 278 306 342" />
+                </g>
+
+                <!-- Standard inactive city route contours -->
+                <path class="idle-road" d="M88 358 C156 308 214 276 282 238 S346 198 374 180" />
+
+                <!-- Active Glowing Dispatch Route (Provider rides toward customer) -->
+                <path class="route-shadow"
+                  d="M88 358 C116 376 166 346 190 286 C210 238 234 200 272 178 C312 156 362 132 402 118" />
+                <path class="route-line"
+                  d="M88 358 C116 376 166 346 190 286 C210 238 234 200 272 178 C312 156 362 132 402 118" />
+                <circle class="map-node" cx="348" cy="122" r="4" />
+                <circle class="map-node" cx="272" cy="178" r="4" />
+                <circle class="map-node" cx="190" cy="286" r="4" />
+                <circle class="map-node" cx="118" cy="368" r="4" />
+
+                <g class="city-block block-a">
+                  <polygon points="174,205 224,180 274,205 224,232" />
+                  <polygon points="174,205 224,232 224,292 174,264" />
+                  <polygon points="274,205 224,232 224,292 274,264" />
+                </g>
+                <g class="city-block block-b">
+                  <polygon points="304,275 356,249 408,275 356,303" />
+                  <polygon points="304,275 356,303 356,364 304,335" />
+                  <polygon points="408,275 356,303 356,364 408,335" />
+                </g>
+                <g class="city-block block-c">
+                  <polygon points="106,305 150,284 194,306 150,330" />
+                  <polygon points="106,305 150,330 150,380 106,354" />
+                  <polygon points="194,306 150,330 150,380 194,354" />
+                </g>
+
+                <g class="dashboard-panel-svg">
+                  <rect x="58" y="88" width="126" height="72" rx="18" />
+                  <path d="M78 128 L104 116 L130 124 L158 104" />
+                  <circle cx="78" cy="128" r="4" />
+                  <circle cx="104" cy="116" r="4" />
+                  <circle cx="130" cy="124" r="4" />
+                  <circle cx="158" cy="104" r="4" />
+                </g>
+              </svg>
+
+              <div class="hero-orbit-ring ring-one" aria-hidden="true"></div>
+              <div class="hero-orbit-ring ring-two" aria-hidden="true"></div>
+
+              <!-- Active Dispatch Rider (Dispatched specialist moving from provider to customer) -->
+              <div class="dispatch-rider active-provider" aria-hidden="true">
+                <svg viewBox="0 0 96 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Scooter Shadow -->
+                  <ellipse cx="48" cy="62" rx="38" ry="5" fill="rgba(0,0,0,0.15)" />
+
+                  <!-- Rear Wheel -->
+                  <circle cx="24" cy="52" r="10" fill="#111827" />
+                  <circle cx="24" cy="52" r="6" fill="#94a3b8" />
+                  <circle cx="24" cy="52" r="3" fill="#334155" />
+
+                  <!-- Front Wheel -->
+                  <circle cx="72" cy="52" r="10" fill="#111827" />
+                  <circle cx="72" cy="52" r="6" fill="#94a3b8" />
+                  <circle cx="72" cy="52" r="3" fill="#334155" />
+
+                  <!-- Floorboard -->
+                  <path d="M34 50 L64 50 L66 44 L34 44 Z" fill="#1f2937" />
+
+                  <!-- Main Chassis / Frame (Yellow) -->
+                  <path d="M24 50 C24 38 34 34 48 34 L58 34 C64 34 66 42 64 50 Z" fill="#FFB200" />
+                  <!-- Front Shield (Yellow) -->
+                  <path d="M60 48 L68 28 C70 24 73 24 74 24 L76 28 L68 50 Z" fill="#FFB200" />
+
+                  <!-- Seat (Black) -->
+                  <rect x="36" y="30" width="22" height="6" rx="3" fill="#111827" />
+
+                  <!-- Rear Carrier Box (GRED Delivery Box) -->
+                  <rect x="10" y="16" width="20" height="20" rx="3" fill="#111827" />
+                  <rect x="13" y="19" width="14" height="14" rx="2" fill="#FFB200" />
+                  <path d="M22 23 C20 23 18 24 18 26 C18 28 20 29 22 29 C23.5 29 24 28 24 27.5 L24 26.5 L21.5 26.5"
+                    stroke="#111827" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+
+                  <!-- Front Fork -->
+                  <line x1="72" y1="52" x2="68" y2="22" stroke="#4b5563" stroke-width="3" stroke-linecap="round" />
+                  <!-- Handlebars -->
+                  <path d="M64 22 L72 22" stroke="#111827" stroke-width="3" stroke-linecap="round" />
+
+                  <!-- Rider Body -->
+                  <path d="M47 36 L52 46 L60 46" stroke="#111827" stroke-width="4.5" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M47 34 L53 22 L63 24" stroke="#111827" stroke-width="5" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M53 22 L66 22" stroke="#111827" stroke-width="4" fill="none" stroke-linecap="round" />
+                  <circle cx="53" cy="14" r="7" fill="#FFB200" stroke="#111827" stroke-width="1.5" />
+                  <path d="M54 12 L58 14 L55 17" fill="#111827" />
+                </svg>
+              </div>
+
+              <!-- Idle Nearby Provider 1 (Subtle nearby scooter movement) -->
+              <div class="dispatch-rider idle-provider idle-provider-1" aria-hidden="true">
+                <svg viewBox="0 0 96 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Scooter Shadow -->
+                  <ellipse cx="48" cy="62" rx="38" ry="5" fill="rgba(0,0,0,0.15)" />
+
+                  <!-- Rear Wheel -->
+                  <circle cx="24" cy="52" r="10" fill="#111827" />
+                  <circle cx="24" cy="52" r="6" fill="#94a3b8" />
+                  <circle cx="24" cy="52" r="3" fill="#334155" />
+
+                  <!-- Front Wheel -->
+                  <circle cx="72" cy="52" r="10" fill="#111827" />
+                  <circle cx="72" cy="52" r="6" fill="#94a3b8" />
+                  <circle cx="72" cy="52" r="3" fill="#334155" />
+
+                  <!-- Floorboard -->
+                  <path d="M34 50 L64 50 L66 44 L34 44 Z" fill="#1f2937" />
+
+                  <!-- Main Chassis / Frame (Yellow) -->
+                  <path d="M24 50 C24 38 34 34 48 34 L58 34 C64 34 66 42 64 50 Z" fill="#FFB200" />
+                  <!-- Front Shield (Yellow) -->
+                  <path d="M60 48 L68 28 C70 24 73 24 74 24 L76 28 L68 50 Z" fill="#FFB200" />
+
+                  <!-- Seat (Black) -->
+                  <rect x="36" y="30" width="22" height="6" rx="3" fill="#111827" />
+
+                  <!-- Rear Carrier Box (GRED Delivery Box) -->
+                  <rect x="10" y="16" width="20" height="20" rx="3" fill="#111827" />
+                  <rect x="13" y="19" width="14" height="14" rx="2" fill="#FFB200" />
+                  <path d="M22 23 C20 23 18 24 18 26 C18 28 20 29 22 29 C23.5 29 24 28 24 27.5 L24 26.5 L21.5 26.5"
+                    stroke="#111827" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+
+                  <!-- Front Fork -->
+                  <line x1="72" y1="52" x2="68" y2="22" stroke="#4b5563" stroke-width="3" stroke-linecap="round" />
+                  <!-- Handlebars -->
+                  <path d="M64 22 L72 22" stroke="#111827" stroke-width="3" stroke-linecap="round" />
+
+                  <!-- Rider Body -->
+                  <path d="M47 36 L52 46 L60 46" stroke="#111827" stroke-width="4.5" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M47 34 L53 22 L63 24" stroke="#111827" stroke-width="5" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M53 22 L66 22" stroke="#111827" stroke-width="4" fill="none" stroke-linecap="round" />
+                  <circle cx="53" cy="14" r="7" fill="#FFB200" stroke="#111827" stroke-width="1.5" />
+                  <path d="M54 12 L58 14 L55 17" fill="#111827" />
+                </svg>
+              </div>
+
+              <!-- Idle Nearby Provider 2 (Subtle nearby scooter movement) -->
+              <div class="dispatch-rider idle-provider idle-provider-2" aria-hidden="true">
+                <svg viewBox="0 0 96 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Scooter Shadow -->
+                  <ellipse cx="48" cy="62" rx="38" ry="5" fill="rgba(0,0,0,0.15)" />
+
+                  <!-- Rear Wheel -->
+                  <circle cx="24" cy="52" r="10" fill="#111827" />
+                  <circle cx="24" cy="52" r="6" fill="#94a3b8" />
+                  <circle cx="24" cy="52" r="3" fill="#334155" />
+
+                  <!-- Front Wheel -->
+                  <circle cx="72" cy="52" r="10" fill="#111827" />
+                  <circle cx="72" cy="52" r="6" fill="#94a3b8" />
+                  <circle cx="72" cy="52" r="3" fill="#334155" />
+
+                  <!-- Floorboard -->
+                  <path d="M34 50 L64 50 L66 44 L34 44 Z" fill="#1f2937" />
+
+                  <!-- Main Chassis / Frame (Yellow) -->
+                  <path d="M24 50 C24 38 34 34 48 34 L58 34 C64 34 66 42 64 50 Z" fill="#FFB200" />
+                  <!-- Front Shield (Yellow) -->
+                  <path d="M60 48 L68 28 C70 24 73 24 74 24 L76 28 L68 50 Z" fill="#FFB200" />
+
+                  <!-- Seat (Black) -->
+                  <rect x="36" y="30" width="22" height="6" rx="3" fill="#111827" />
+
+                  <!-- Rear Carrier Box (GRED Delivery Box) -->
+                  <rect x="10" y="16" width="20" height="20" rx="3" fill="#111827" />
+                  <rect x="13" y="19" width="14" height="14" rx="2" fill="#FFB200" />
+                  <path d="M22 23 C20 23 18 24 18 26 C18 28 20 29 22 29 C23.5 29 24 28 24 27.5 L24 26.5 L21.5 26.5"
+                    stroke="#111827" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+
+                  <!-- Front Fork -->
+                  <line x1="72" y1="52" x2="68" y2="22" stroke="#4b5563" stroke-width="3" stroke-linecap="round" />
+                  <!-- Handlebars -->
+                  <path d="M64 22 L72 22" stroke="#111827" stroke-width="3" stroke-linecap="round" />
+
+                  <!-- Rider Body -->
+                  <path d="M47 36 L52 46 L60 46" stroke="#111827" stroke-width="4.5" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M47 34 L53 22 L63 24" stroke="#111827" stroke-width="5" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M53 22 L66 22" stroke="#111827" stroke-width="4" fill="none" stroke-linecap="round" />
+                  <circle cx="53" cy="14" r="7" fill="#FFB200" stroke="#111827" stroke-width="1.5" />
+                  <path d="M54 12 L58 14 L55 17" fill="#111827" />
+                </svg>
+              </div>
+
+              <div class="gps-pin-pulse user-pin" aria-hidden="true"><span class="gps-pin-inner"></span></div>
+              <div class="gps-pin-pulse provider-pin" aria-hidden="true"><span class="gps-pin-inner"></span></div>
+
+              <article class="hero-card hero-card-booking">
+                <div class="booking-icon">
+                  <img src="20260304_121316 copy.png?v=3" alt="GRED Logo" />
+                </div>
+                <div class="booking-text-wrap">
+                  <span>New booking</span>
+                  <p class="booking-ticker-msg" id="booking-ticker-msg">Deep cleaning accepted</p>
+                </div>
+              </article>
+
+              <article class="hero-card hero-card-status">
+                <span class="status-badge">Provider found</span>
+                <h6>GRED provider is on the way</h6>
+                <div class="loading-bar-wrap">
+                  <div class="loading-bar-fill"></div>
+                </div>
+              </article>
+
+              <article class="hero-card hero-card-badge">verified partners nearby</article>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+      </div>
+    </main>
+
+    <!-- 1. ABOUT SECTION -->
+    <section id="about" class="section-padding scroll-reveal">
+      <div class="about-grid">
+        <div class="about-feature-card">
+          <!-- Premium Ambient Decorative Elements -->
+          <div class="card-ambient-glow" aria-hidden="true"></div>
+          <div class="card-glow-blob blob-1" aria-hidden="true"></div>
+          <div class="card-glow-blob blob-2" aria-hidden="true"></div>
+          <div class="card-reflection" aria-hidden="true"></div>
+          <div class="card-particles" aria-hidden="true">
+            <span class="particle p-1"></span>
+            <span class="particle p-2"></span>
+            <span class="particle p-3"></span>
+          </div>
+
+          <div class="card-inner-content">
+            <span class="about-tag premium-tag">About GRED</span>
+            <h2 class="about-heading premium-heading">Premium On-Demand Hyperlocal Marketplace</h2>
+            <p class="about-desc premium-desc">
+              GRED is an advanced on-demand platform designed to match busy households with top-tier service providers instantly. Operating a high-performance city-wise dispatch matrix, we connect local customers with vetted companies to ensure elite craftsmanship and zero delays.
+            </p>
+
+            <!-- 4 Mini Glowing Stats Cards -->
+            <div class="stats-mini-grid">
+              <div class="stat-mini-box">
+                <div class="stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 11 2 2 4-4"/>
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-number">100%</span>
+                  <span class="stat-label">Verified Partners</span>
+                </div>
+              </div>
+
+              <div class="stat-mini-box">
+                <div class="stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-number">Real-time</span>
+                  <span class="stat-label">Fast Dispatch</span>
+                </div>
+              </div>
+
+              <div class="stat-mini-box">
+                <div class="stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-number">City-wide</span>
+                  <span class="stat-label">Smart Coverage</span>
+                </div>
+              </div>
+
+              <div class="stat-mini-box">
+                <div class="stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-number">Top-Tier</span>
+                  <span class="stat-label">Trusted Space</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-cards-container">
+          <div class="about-mini-card glass-panel">
+            <div class="mini-card-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <h3>Verified Partners Only</h3>
+            <p>Every single service provider on our platform undergoes a rigorous 5-step background check and quality
+              trial before boarding.</p>
+          </div>
+          <div class="about-mini-card glass-panel">
+            <div class="mini-card-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="6" height="6" rx="1"/>
+                <rect x="16" y="2" width="6" height="6" rx="1"/>
+                <rect x="2" y="16" width="6" height="6" rx="1"/>
+                <rect x="16" y="16" width="6" height="6" rx="1"/>
+                <path d="M8 5h8M8 19h8M5 8v8M19 8v8"/>
+              </svg>
+            </div>
+            <h3>Scalable City Infrastructure</h3>
+            <p>Built with robust microservice routing, GRED delivers consistent marketplace experiences across rapidly
+              expanding hubs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SERVICES SECTION -->
+    <section id="services" class="section-padding scroll-reveal">
+      <h2 class="section-title">Our Premium Services</h2>
+      <p class="section-subtitle">Select from our elite range of household services. Fully customizable, vetted, and
+        completed by experts.</p>
+
+      <div class="services-carousel-container">
+        <!-- Ambient Premium Glows -->
+        <div class="services-bg-glow-blob blob-orange" aria-hidden="true"></div>
+        <div class="services-bg-glow-blob blob-yellow" aria-hidden="true"></div>
+        
+        <!-- Tech Dotted Grid Overlay -->
+        <div class="services-dots-grid" aria-hidden="true"></div>
+
+        <!-- Premium Floating Sparks -->
+        <div class="services-floating-spark spark-1" aria-hidden="true">✦</div>
+        <div class="services-floating-spark spark-2" aria-hidden="true">✦</div>
+        <div class="services-floating-spark spark-3" aria-hidden="true">✦</div>
+
+        <div class="services-carousel-wrapper">
+          <div class="services-grid">
+            <!-- Card 1: House Help (Available) -->
+            <div class="service-card glass-panel" id="card-service-house-help">
+              <span class="service-status-badge available" aria-label="Available Now">Available Now</span>
+              <div class="service-card-icon-wrap">
+                <div class="service-card-glow"></div>
+                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363872/file_000000004ca07208b97fa5da8c067d03_fzrobj.png" alt="House Help Icon" />
+              </div>
+              <div class="service-card-info">
+                <h3 class="service-card-title">House Help</h3>
+                <p class="service-card-desc">Professional on-demand household support, custom housekeeping, and daily assistance.</p>
+              </div>
+              <button class="service-card-btn" id="btn-service-house-help" type="button">Book Now</button>
+            </div>
+
+            <!-- Card 2: Car Service (Coming Soon) -->
+            <div class="service-card glass-panel" id="card-service-car-service">
+              <span class="service-status-badge coming-soon" aria-label="Coming Soon">Coming Soon</span>
+              <div class="service-card-icon-wrap">
+                <div class="service-card-glow"></div>
+                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363890/file_00000000ae3072088b3e5f8eb2acc0e6_kmtkwe.png" alt="Car Service Icon" />
+              </div>
+              <div class="service-card-info">
+                <h3 class="service-card-title">Car Service</h3>
+                <p class="service-card-desc">Premium on-demand car detailing, eco-wash, interior deep vacuuming, and inspection.</p>
+              </div>
+              <button class="service-card-btn disabled" id="btn-service-car-service" type="button" disabled>Coming Soon</button>
+            </div>
+
+            <!-- Card 3: Plumbing (Coming Soon) -->
+            <div class="service-card glass-panel" id="card-service-plumbing">
+              <span class="service-status-badge coming-soon" aria-label="Coming Soon">Coming Soon</span>
+              <div class="service-card-icon-wrap">
+                <div class="service-card-glow"></div>
+                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363808/file_0000000065347208befab56e456ffd75_jlc1m1.png" alt="Plumbing Icon" />
+              </div>
+              <div class="service-card-info">
+                <h3 class="service-card-title">Plumbing</h3>
+                <p class="service-card-desc">Premium diagnostic checks, leak resolutions, piping installations, and fixture repair.</p>
+              </div>
+              <button class="service-card-btn disabled" id="btn-service-plumbing" type="button" disabled>Coming Soon</button>
+            </div>
+
+            <!-- Card 4: Electrical (Coming Soon) -->
+            <div class="service-card glass-panel" id="card-service-electrical">
+              <span class="service-status-badge coming-soon" aria-label="Coming Soon">Coming Soon</span>
+              <div class="service-card-icon-wrap">
+                <div class="service-card-glow"></div>
+                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363750/file_0000000068d8720884b41c36d2c4f2ad_fj7lff.png" alt="Electrical Icon" />
+              </div>
+              <div class="service-card-info">
+                <h3 class="service-card-title">Electrical</h3>
+                <p class="service-card-desc">Certified electricians for smart automation, system diagnostics, and elite wiring setups.</p>
+              </div>
+              <button class="service-card-btn disabled" id="btn-service-electrical" type="button" disabled>Coming Soon</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 3. HOW GRED WORKS -->
+    <section id="how-it-works" class="section-padding scroll-reveal">
+      <!-- Futuristic Live Cyber Background Grid and Glowing Blobs -->
+      <div class="grid-overlay" aria-hidden="true"></div>
+      <div class="glow-blob-1" aria-hidden="true"></div>
+      <div class="glow-blob-2" aria-hidden="true"></div>
+
+      <!-- Floating Cyber Geometric Tech Outlines -->
+      <div class="cyber-ring" style="top: 15%; left: 85%; --scale: 0.85; --speed: 28s;" aria-hidden="true"></div>
+      <div class="cyber-cross" style="top: 32%; left: 42%; --scale: 1.1; --speed: 22s;" aria-hidden="true"></div>
+      <div class="cyber-circle" style="top: 68%; left: 14%; --scale: 0.7; --speed: 32s;" aria-hidden="true"></div>
+      <div class="cyber-cross" style="top: 82%; left: 76%; --scale: 0.95; --speed: 24s;" aria-hidden="true"></div>
+
+      <!-- Futuristic Drifting Background Particles (70+ Canvas Particle Matrix for living cinematic field) -->
+      <div class="dots-background" aria-hidden="true">
+        <canvas id="workflow-particles-canvas"></canvas>
+      </div>
+
+      <div class="section-header">
+        <h2 class="section-title">How GRED Works</h2>
+        <p class="section-subtitle">A seamless, fully digital 4-step workflow connecting booking to finish in record time.</p>
+      </div>
+
+      <div class="workflow-grid">
+        <!-- Step 1 -->
+        <div class="workflow-card scroll-reveal" id="workflow-step-1">
+          <span class="workflow-badge">Step 1</span>
+          <div class="workflow-image-wrapper">
+            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412168/file_0000000062fc723082a1d9267f2d431e_tzovdm.png" alt="Choose Service" class="workflow-img" loading="lazy" />
+          </div>
+          <h3 class="workflow-card-title">Choose Service</h3>
+          <p class="workflow-card-desc">Pick from our premium catalog of deep home cleaning, plumbing, or repairs.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="workflow-card scroll-reveal" id="workflow-step-2">
+          <span class="workflow-badge">Step 2</span>
+          <div class="workflow-image-wrapper">
+            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412159/file_00000000126871fbba8352056f10fab5_xsjufi.png" alt="Book Instantly" class="workflow-img" loading="lazy" />
+          </div>
+          <h3 class="workflow-card-title">Book Instantly</h3>
+          <p class="workflow-card-desc">Input your location, choose a scheduling window, and receive upfront pricing.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="workflow-card scroll-reveal" id="workflow-step-3">
+          <span class="workflow-badge">Step 3</span>
+          <div class="workflow-image-wrapper">
+            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412193/file_00000000e8947209a0fec3e90e0f92d1_mmanta.png" alt="Provider Accepts" class="workflow-img" loading="lazy" />
+          </div>
+          <h3 class="workflow-card-title">Provider Accepts</h3>
+          <p class="workflow-card-desc">An elite neighborhood crew confirms, sharing dynamic GPS coordinates.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="workflow-card scroll-reveal" id="workflow-step-4">
+          <span class="workflow-badge">Step 4</span>
+          <div class="workflow-image-wrapper">
+            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412183/file_00000000f310720a8d6073c0d2ce0d6a_yqup8m.png" alt="Work Completed" class="workflow-img" loading="lazy" />
+          </div>
+          <h3 class="workflow-card-title">Work Completed</h3>
+          <p class="workflow-card-desc">Your task is completed with active warranty support. Release payment securely.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. WHY CHOOSE GRED -->
+    <section id="why-choose" class="section-padding scroll-reveal">
+      <h2 class="section-title">Why Choose GRED</h2>
+      <p class="section-subtitle">We focus on elite standards and engineering solutions to secure total peace of mind.
+      </p>
+
+      <div class="features-grid">
+        <!-- Feature 1: Verified Providers -->
+        <div class="feature-card glass-panel" id="card-feature-vetted">
+          <div class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" class="feature-svg-illustration">
+              <defs>
+                <linearGradient id="vetted-grad-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFB200" />
+                  <stop offset="100%" stop-color="#ea580c" />
+                </linearGradient>
+                <linearGradient id="vetted-grad-shield" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#FFEAA7" stop-opacity="0.3" />
+                </linearGradient>
+                <filter id="vetted-glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#FFB200" flood-opacity="0.4" />
+                </filter>
+              </defs>
+              <circle cx="24" cy="24" r="20" fill="url(#vetted-grad-bg)" filter="url(#vetted-glow)" opacity="0.15" />
+              <circle cx="24" cy="24" r="16" stroke="url(#vetted-grad-bg)" stroke-width="1" stroke-dasharray="3 3" opacity="0.3" />
+              <path d="M24 6l14 5v11c0 8.5-6.5 14-14 16-7.5-2-14-7.5-14-16V11l14-5z" fill="url(#vetted-grad-shield)" stroke="url(#vetted-grad-bg)" stroke-width="1.8" stroke-linejoin="round" />
+              <circle cx="24" cy="22" r="7" fill="url(#vetted-grad-bg)" />
+              <path d="M21 22l2 2 3.5-3.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="12" cy="16" r="1.5" fill="#FFB200" />
+              <circle cx="36" cy="28" r="2" fill="#ea580c" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Verified Providers</h3>
+          <p class="feature-desc">All partner companies undergo rigorous background validations and quality testing
+            before their first booking.</p>
+        </div>
+
+        <!-- Feature 2: Fast Booking -->
+        <div class="feature-card glass-panel" id="card-feature-speed">
+          <div class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" class="feature-svg-illustration">
+              <defs>
+                <linearGradient id="speed-grad-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFB200" />
+                  <stop offset="100%" stop-color="#ea580c" />
+                </linearGradient>
+                <linearGradient id="speed-grad-bolt" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#FFEAA7" stop-opacity="0.4" />
+                </linearGradient>
+                <filter id="speed-glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#ea580c" flood-opacity="0.4" />
+                </filter>
+              </defs>
+              <circle cx="24" cy="24" r="20" fill="url(#speed-grad-bg)" filter="url(#speed-glow)" opacity="0.15" />
+              <line x1="8" y1="20" x2="16" y2="20" stroke="url(#speed-grad-bg)" stroke-width="2" stroke-linecap="round" opacity="0.5" />
+              <line x1="6" y1="26" x2="12" y2="26" stroke="url(#speed-grad-bg)" stroke-width="2" stroke-linecap="round" opacity="0.3" />
+              <line x1="10" y1="32" x2="18" y2="32" stroke="url(#speed-grad-bg)" stroke-width="2" stroke-linecap="round" opacity="0.4" />
+              <path d="M29 6L15 25h11l-3 17 14-19H26L29 6z" fill="url(#speed-grad-bg)" />
+              <path d="M27 8L17 23h11l-3 13 10-15H24l3-13z" fill="url(#speed-grad-bolt)" stroke="#ffffff" stroke-width="1" />
+              <circle cx="38" cy="14" r="2" fill="#FFB200" />
+              <circle cx="34" cy="36" r="1.5" fill="#ea580c" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Fast Booking</h3>
+          <p class="feature-desc">Our intelligent hyperlocal dispatcher connects you to local pros within seconds. No
+            endless calls needed.</p>
+        </div>
+
+        <!-- Feature 3: Affordable Pricing -->
+        <div class="feature-card glass-panel" id="card-feature-pricing">
+          <div class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" class="feature-svg-illustration">
+              <defs>
+                <linearGradient id="pricing-grad-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFB200" />
+                  <stop offset="100%" stop-color="#ea580c" />
+                </linearGradient>
+                <linearGradient id="pricing-grad-card" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#FFEAA7" stop-opacity="0.25" />
+                </linearGradient>
+                <filter id="pricing-glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#FFB200" flood-opacity="0.4" />
+                </filter>
+              </defs>
+              <circle cx="24" cy="24" r="20" fill="url(#pricing-grad-bg)" filter="url(#pricing-glow)" opacity="0.15" />
+              <rect x="32" y="16" width="4" height="18" rx="2" fill="url(#pricing-grad-bg)" />
+              <rect x="38" y="22" width="4" height="12" rx="2" fill="url(#pricing-grad-bg)" opacity="0.6" />
+              <rect x="8" y="12" width="22" height="24" rx="6" fill="url(#pricing-grad-card)" stroke="url(#pricing-grad-bg)" stroke-width="1.8" />
+              <circle cx="13" cy="17" r="2" fill="url(#pricing-grad-bg)" />
+              <path d="M19 19c0-1.5 1-2.5 2.5-2.5s2.5 1 2.5 2.5c0 1.5-1 2.5-2.5 2.5s-2.5 1-2.5 2.5c0 1.5 1 2.5 2.5 2.5s2.5-1 2.5-2.5M21.5 15v16" stroke="url(#pricing-grad-bg)" stroke-width="1.8" stroke-linecap="round" />
+              <path d="M26 12l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z" fill="#FFB200" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Affordable Pricing</h3>
+          <p class="feature-desc">Zero hidden charges. Get transparent, comprehensive flat-rate estimates prior to
+            booking approval.</p>
+        </div>
+
+        <!-- Feature 4: Real-time Updates -->
+        <div class="feature-card glass-panel" id="card-feature-updates">
+          <div class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" class="feature-svg-illustration">
+              <defs>
+                <linearGradient id="updates-grad-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFB200" />
+                  <stop offset="100%" stop-color="#ea580c" />
+                </linearGradient>
+                <linearGradient id="updates-grad-pin" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#FFEAA7" stop-opacity="0.3" />
+                </linearGradient>
+                <filter id="updates-glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#ea580c" flood-opacity="0.4" />
+                </filter>
+              </defs>
+              <circle cx="24" cy="24" r="20" fill="url(#updates-grad-bg)" filter="url(#updates-glow)" opacity="0.15" />
+              <circle cx="24" cy="24" r="16" stroke="url(#updates-grad-bg)" stroke-width="1" stroke-dasharray="4 2" opacity="0.4" />
+              <circle cx="24" cy="24" r="10" stroke="url(#updates-grad-bg)" stroke-width="0.8" opacity="0.2" />
+              <line x1="24" y1="24" x2="36" y2="12" stroke="url(#updates-grad-bg)" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+              <path d="M24 8c-5.5 0-10 4.5-10 10 0 6.5 10 16 10 16s10-9.5 10-16c0-5.5-4.5-10-10-10z" fill="url(#updates-grad-pin)" stroke="url(#updates-grad-bg)" stroke-width="1.8" />
+              <circle cx="24" cy="18" r="3.5" fill="url(#updates-grad-bg)" />
+              <circle cx="36" cy="12" r="3" fill="#ea580c" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Real-time Updates</h3>
+          <p class="feature-desc">Monitor your dispatched provider's live GPS route directly within your GRED dashboard
+            for seamless handoffs.</p>
+        </div>
+
+        <!-- Feature 5: Safe Payments -->
+        <div class="feature-card glass-panel" id="card-feature-security">
+          <div class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" class="feature-svg-illustration">
+              <defs>
+                <linearGradient id="security-grad-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFB200" />
+                  <stop offset="100%" stop-color="#ea580c" />
+                </linearGradient>
+                <linearGradient id="security-grad-lock" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+                  <stop offset="100%" stop-color="#FFEAA7" stop-opacity="0.3" />
+                </linearGradient>
+                <filter id="security-glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#FFB200" flood-opacity="0.4" />
+                </filter>
+              </defs>
+              <circle cx="24" cy="24" r="20" fill="url(#security-grad-bg)" filter="url(#security-glow)" opacity="0.15" />
+              <rect x="8" y="10" width="22" height="15" rx="3" stroke="url(#security-grad-bg)" stroke-width="1.2" opacity="0.3" />
+              <line x1="8" y1="15" x2="30" y2="15" stroke="url(#security-grad-bg)" stroke-width="1.2" opacity="0.3" />
+              <rect x="15" y="20" width="18" height="15" rx="5" fill="url(#security-grad-lock)" stroke="url(#security-grad-bg)" stroke-width="1.8" />
+              <path d="M19 20v-5a5 5 0 0 1 10 0v5" stroke="url(#security-grad-bg)" stroke-width="1.8" stroke-linecap="round" />
+              <circle cx="24" cy="26" r="1.5" fill="url(#security-grad-bg)" />
+              <path d="M24 27.5v2.5" stroke="url(#security-grad-bg)" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M37 12l0.5 1 1 0.5-1 0.5-0.5 1-0.5-1-1-0.5 1-0.5 0.5-1z" fill="#FFB200" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Safe Payments</h3>
+          <p class="feature-desc">Payments are securely processed and held in escrow, released only when you are 100%
+            happy with the task.</p>
+        </div>
+
+        <!-- Feature 6: Trusted Marketplace -->
+        <div class="feature-card glass-panel" id="card-feature-trust">
+          <div class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" class="feature-svg-illustration">
+              <defs>
+                <linearGradient id="trust-grad-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFB200" />
+                  <stop offset="100%" stop-color="#ea580c" />
+                </linearGradient>
+                <linearGradient id="trust-grad-glass" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#FFEAA7" stop-opacity="0.3" />
+                </linearGradient>
+                <filter id="trust-glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#ea580c" flood-opacity="0.4" />
+                </filter>
+              </defs>
+              <circle cx="24" cy="24" r="20" fill="url(#trust-grad-bg)" filter="url(#trust-glow)" opacity="0.15" />
+              <circle cx="24" cy="24" r="15" stroke="url(#trust-grad-bg)" stroke-width="1" opacity="0.3" />
+              <path d="M24 8l3.6 7.2 8 1.2-5.8 5.6 1.4 8-7.2-3.8-7.2 3.8 1.4-8-5.8-5.6 8-1.2L24 8z" fill="url(#trust-grad-glass)" stroke="url(#trust-grad-bg)" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="M21 23l2 2 4-4" stroke="url(#trust-grad-bg)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="10" cy="18" r="1.5" fill="#FFB200" />
+              <circle cx="38" cy="26" r="2" fill="#ea580c" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Trusted Marketplace</h3>
+          <p class="feature-desc">Built upon deep feedback loops, transparent user ratings, and full service warranties
+            for every booking.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. APP FEATURES SECTION (Interactive Mockup Showcase) -->
+    <section id="app-features" class="section-padding scroll-reveal">
+      <h2 class="section-title">Seamless App Features</h2>
+      <p class="section-subtitle">Experience a fluid, powerful interface designed for effortless home management.</p>
+
+      <div class="app-showcase-box">
+        <!-- Premium Live Floating Blackish-Grey Dots -->
+        <div class="showcase-dots-container" aria-hidden="true">
+          <div class="showcase-dot" style="top: 15%; left: 8%; width: 4px; height: 4px; --dx: 15px; --dy: -25px; animation-duration: 16s;"></div>
+          <div class="showcase-dot" style="top: 35%; left: 22%; width: 3px; height: 3px; --dx: -20px; --dy: 15px; animation-duration: 20s; animation-delay: 2s;"></div>
+          <div class="showcase-dot" style="top: 75%; left: 12%; width: 5px; height: 5px; --dx: 12px; --dy: 25px; animation-duration: 18s; animation-delay: 1s;"></div>
+          <div class="showcase-dot" style="top: 20%; left: 42%; width: 3px; height: 3px; --dx: -22px; --dy: -12px; animation-duration: 22s;"></div>
+          <div class="showcase-dot" style="top: 60%; left: 52%; width: 4px; height: 4px; --dx: 18px; --dy: -18px; animation-duration: 17s; animation-delay: 3s;"></div>
+          <div class="showcase-dot" style="top: 10%; left: 72%; width: 4px; height: 4px; --dx: -12px; --dy: 22px; animation-duration: 19s; animation-delay: 1.5s;"></div>
+          <div class="showcase-dot" style="top: 45%; left: 82%; width: 3px; height: 3px; --dx: 22px; --dy: -12px; animation-duration: 21s; animation-delay: 4s;"></div>
+          <div class="showcase-dot" style="top: 80%; left: 68%; width: 5px; height: 5px; --dx: -12px; --dy: -22px; animation-duration: 15s; animation-delay: 0.5s;"></div>
+          <div class="showcase-dot" style="top: 70%; left: 32%; width: 4px; height: 4px; --dx: 22px; --dy: 12px; animation-duration: 23s; animation-delay: 2.5s;"></div>
+          <div class="showcase-dot" style="top: 30%; left: 62%; width: 3px; height: 3px; --dx: -12px; --dy: -28px; animation-duration: 17s; animation-delay: 5s;"></div>
+          <div class="showcase-dot" style="top: 88%; left: 88%; width: 4px; height: 4px; --dx: -18px; --dy: 15px; animation-duration: 18s; animation-delay: 3s;"></div>
+          <div class="showcase-dot" style="top: 5%; left: 32%; width: 4px; height: 4px; --dx: 12px; --dy: -8px; animation-duration: 20s; animation-delay: 1s;"></div>
+        </div>
+
+        <!-- Faded showcase glow -->
+        <div class="showcase-glow" aria-hidden="true"></div>
+
+        <div class="app-section-grid">
+        <!-- Left side: Interactive triggers -->
+        <div class="app-features-list">
+          <!-- Booking Screen Trigger -->
+          <button class="app-feature-btn active" id="trigger-app-booking" type="button">
+            <span class="app-feature-btn-num">01</span>
+            <div class="app-feature-btn-text">
+              <h4>Booking Screen</h4>
+              <p>Select home service categories and check flat pricing in 3 clicks.</p>
+            </div>
+          </button>
+
+          <!-- Live Tracking Trigger -->
+          <button class="app-feature-btn" id="trigger-app-tracking" type="button">
+            <span class="app-feature-btn-num">02</span>
+            <div class="app-feature-btn-text">
+              <h4>Live Tracking</h4>
+              <p>Observe your service provider's physical location on a live-map grid.</p>
+            </div>
+          </button>
+
+          <!-- Cart Trigger -->
+          <button class="app-feature-btn" id="trigger-app-chat" type="button">
+            <span class="app-feature-btn-num">03</span>
+            <div class="app-feature-btn-text">
+              <h4>Cart</h4>
+              <p>Review chosen home services, verify flat pricing, and check out securely.</p>
+            </div>
+          </button>
+
+          <!-- Service Status Trigger -->
+          <button class="app-feature-btn" id="trigger-app-status" type="button">
+            <span class="app-feature-btn-num">04</span>
+            <div class="app-feature-btn-text">
+              <h4>Service Status</h4>
+              <p>Follow a simple milestone tracker checking off job progress phase by phase.</p>
+            </div>
+          </button>
+
+          <!-- Booking History Trigger -->
+          <button class="app-feature-btn" id="trigger-app-dashboard" type="button">
+            <span class="app-feature-btn-num">05</span>
+            <div class="app-feature-btn-text">
+              <h4>Booking History</h4>
+              <p>View previous completed services, access invoice history, and re-book in 1 click.</p>
+            </div>
+          </button>
+        </div>
+
+        <!-- Right side: Pure CSS Phone Simulator -->
+        <div class="phone-mockup-wrapper">
+          <div class="phone-container">
+            <!-- Notch -->
+            <div class="phone-dynamic-island">
+              <div class="dynamic-island-speaker"></div>
+              <div class="dynamic-island-camera"></div>
+            </div>
+
+            <!-- Screen content -->
+            <div class="phone-screen" id="phone-screen-target">
+              <!-- Loaded dynamically by JS. Falls back to default booking mockup -->
+              <div class="phone-app-header">
+                <span class="phone-app-brand">GRED</span>
+                <div class="phone-app-user-avatar">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+              </div>
+              <div style="margin-bottom: 18px; position: relative;">
+                <input type="text" placeholder="Search cleaning, plumbing..." disabled
+                  style="width: 100%; padding: 10px 14px 10px 32px; border-radius: 10px; border: 1px solid #cbd5e1; background: #ffffff; color:#000000; font-size:0.8rem;" />
+                <span style="position: absolute; left: 10px; top: 9px; font-size: 0.8rem;">🔍</span>
+              </div>
+              <div style="border-radius:12px; overflow:hidden; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); width: 100%; aspect-ratio: 16 / 9;">
+                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1777323674/20260428_022743_uurqty.png" style="width:100%; height:100%; object-fit:cover;" />
+              </div>
+              <h5 style="font-size:0.85rem; margin-bottom:10px; color:#000000; font-weight:700;">Select Category</h5>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom:20px;">
+                <div style="background:#ffffff; border:2px solid #FFB200; border-radius:12px; padding:10px 8px; text-align:center; font-size:0.75rem; font-weight:700; color:#000000; display:flex; flex-direction:column; align-items:center; box-shadow: 0 4px 10px rgba(255,178,0,0.06);">
+                  <div style="width:52px; height:52px; border-radius:50%; background:rgba(255,178,0,0.05); border:1px solid #FFB200; display:flex; align-items:center; justify-content:center; overflow:hidden; margin-bottom:6px;">
+                    <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363872/file_000000004ca07208b97fa5da8c067d03_fzrobj.png" style="width:80%; height:80%; object-fit:contain;" />
+                  </div>
+                  House Help
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:10px 8px; text-align:center; font-size:0.75rem; font-weight:600; color:#4b5563; display:flex; flex-direction:column; align-items:center; box-shadow: 0 2px 6px rgba(0,0,0,0.015);">
+                  <div style="width:52px; height:52px; border-radius:50%; background:#f8fafc; border:1px solid rgba(0,0,0,0.06); display:flex; align-items:center; justify-content:center; overflow:hidden; margin-bottom:6px;">
+                    <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363890/file_00000000ae3072088b3e5f8eb2acc0e6_kmtkwe.png" style="width:80%; height:80%; object-fit:contain;" />
+                  </div>
+                  Car Service
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:10px 8px; text-align:center; font-size:0.75rem; font-weight:600; color:#4b5563; display:flex; flex-direction:column; align-items:center; box-shadow: 0 2px 6px rgba(0,0,0,0.015);">
+                  <div style="width:52px; height:52px; border-radius:50%; background:#f8fafc; border:1px solid rgba(0,0,0,0.06); display:flex; align-items:center; justify-content:center; overflow:hidden; margin-bottom:6px;">
+                    <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363808/file_0000000065347208befab56e456ffd75_jlc1m1.png" style="width:80%; height:80%; object-fit:contain;" />
+                  </div>
+                  Plumbing
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:10px 8px; text-align:center; font-size:0.75rem; font-weight:600; color:#4b5563; display:flex; flex-direction:column; align-items:center; box-shadow: 0 2px 6px rgba(0,0,0,0.015);">
+                  <div style="width:52px; height:52px; border-radius:50%; background:#f8fafc; border:1px solid rgba(0,0,0,0.06); display:flex; align-items:center; justify-content:center; overflow:hidden; margin-bottom:6px;">
+                    <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363750/file_0000000068d8720884b41c36d2c4f2ad_fj7lff.png" style="width:80%; height:80%; object-fit:contain;" />
+                  </div>
+                  Electrical
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- 6. TRUST & SAFETY SECTION -->
+    <section id="trust-safety" class="section-padding scroll-reveal">
+      <h2 class="section-title">Trust & Safety</h2>
+      <p class="section-subtitle">We understand home entry requires robust standards. GRED protects your household with
+        strict safeguards.</p>
+
+      <div class="trust-grid">
+        <!-- Badge 1: Verified companies -->
+        <div class="trust-badge-card glass-panel" id="card-trust-verification">
+          <div class="trust-badge-icon" aria-hidden="true">
+            <svg class="trust-badge-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px;">
+              <defs>
+                <linearGradient id="trust-vetted-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFB200" />
+                  <stop offset="100%" stop-color="#ea580c" />
+                </linearGradient>
+                <linearGradient id="trust-vetted-shield-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#FFEAA7" stop-opacity="0.3" />
+                </linearGradient>
+              </defs>
+              <circle cx="24" cy="24" r="20" fill="url(#trust-vetted-grad)" opacity="0.12" />
+              <circle class="trust-anim-rotate" cx="24" cy="24" r="17" stroke="url(#trust-vetted-grad)" stroke-width="1" stroke-dasharray="3 3" opacity="0.35" />
+              <path d="M24 8l11 4v10c0 6.5-5 11.5-11 13-6-1.5-11-6.5-11-13V12l11-4z" fill="url(#trust-vetted-shield-grad)" stroke="url(#trust-vetted-grad)" stroke-width="1.8" stroke-linejoin="round" />
+              <circle class="trust-anim-pulse-dot" cx="24" cy="22" r="6" fill="url(#trust-vetted-grad)" />
+              <path class="trust-anim-check" d="M21.5 22l1.5 1.5 3-3" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="13" cy="18" r="1.5" fill="#FFB200" />
+              <circle cx="35" cy="26" r="2" fill="#ea580c" />
+            </svg>
+          </div>
+          <h3 class="trust-badge-title">Verified Companies</h3>
+          <p class="trust-badge-desc">Every business provider passes detailed background screening and compliance
+            audits.</p>
+        </div>
+
+        <!-- Badge 2: Secure booking -->
+        <div class="trust-badge-card glass-panel" id="card-trust-booking">
+          <div class="trust-badge-icon" aria-hidden="true">
+            <svg class="trust-badge-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px;">
+              <defs>
+                <linearGradient id="trust-lock-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFB200" />
+                  <stop offset="100%" stop-color="#ea580c" />
+                </linearGradient>
+                <linearGradient id="trust-ticket-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#FFEAA7" stop-opacity="0.45" />
+                </linearGradient>
+              </defs>
+              <circle cx="24" cy="24" r="20" fill="url(#trust-lock-grad)" opacity="0.12" />
+              <rect class="trust-anim-ticket" x="12" y="16" width="24" height="18" rx="3" fill="url(#trust-ticket-grad)" stroke="url(#trust-lock-grad)" stroke-width="1.5" opacity="0.8" />
+              <line x1="16" y1="22" x2="22" y2="22" stroke="url(#trust-lock-grad)" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+              <line x1="16" y1="27" x2="26" y2="27" stroke="url(#trust-lock-grad)" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+              <path class="trust-anim-shackle" d="M20 20v-4a4 4 0 0 1 8 0v4" stroke="url(#trust-lock-grad)" stroke-width="2.2" stroke-linecap="round" />
+              <rect class="trust-anim-lockbody" x="18" y="20" width="12" height="10" rx="2" fill="url(#trust-lock-grad)" />
+              <circle cx="24" cy="25" r="1" fill="#ffffff" />
+              <circle cx="36" cy="14" r="1.5" fill="#FFB200" />
+            </svg>
+          </div>
+          <h3 class="trust-badge-title">Secure Booking</h3>
+          <p class="trust-badge-desc">All communication and scheduling details are securely encrypted to secure customer
+            privacy.</p>
+        </div>
+
+        <!-- Badge 3: Customer support -->
+        <div class="trust-badge-card glass-panel" id="card-trust-support">
+          <div class="trust-badge-icon" aria-hidden="true">
+            <svg class="trust-badge-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px;">
+              <defs>
+                <linearGradient id="trust-support-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFB200" />
+                  <stop offset="100%" stop-color="#ea580c" />
+                </linearGradient>
+                <linearGradient id="trust-bubble-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+                  <stop offset="100%" stop-color="#FFEAA7" stop-opacity="0.4" />
+                </linearGradient>
+              </defs>
+              <circle cx="24" cy="24" r="20" fill="url(#trust-support-grad)" opacity="0.12" />
+              <circle class="trust-anim-support-radar" cx="24" cy="24" r="16" stroke="url(#trust-support-grad)" stroke-width="1" opacity="0.3" />
+              <circle class="trust-anim-support-radar2" cx="24" cy="24" r="12" stroke="url(#trust-support-grad)" stroke-width="1.2" opacity="0.2" />
+              <path d="M12 26V20a12 12 0 0 1 24 0v6" stroke="url(#trust-support-grad)" stroke-width="2.2" stroke-linecap="round" />
+              <rect class="trust-anim-headset-left" x="9" y="22" width="5" height="8" rx="2.5" fill="url(#trust-support-grad)" />
+              <rect class="trust-anim-headset-right" x="34" y="22" width="5" height="8" rx="2.5" fill="url(#trust-support-grad)" />
+              <path class="trust-anim-bubble" d="M22 10h12a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-8l-4 4v-4h-3a3 3 0 0 1-3-3v-6a3 3 0 0 1 3-3z" fill="url(#trust-bubble-grad)" stroke="url(#trust-support-grad)" stroke-width="1.2" />
+              <circle class="trust-anim-pulse-dot" cx="28" cy="16" r="2" fill="#ea580c" />
+              <circle cx="32" cy="16" r="1" fill="#FFB200" />
+            </svg>
+          </div>
+          <h3 class="trust-badge-title">Customer Support</h3>
+          <p class="trust-badge-desc">Our fast-response help desk operates 24/7, resolving scheduling queries and client
+            tickets instantly.</p>
+        </div>
+
+        <!-- Badge 4: Quality assurance -->
+        <div class="trust-badge-card glass-panel" id="card-trust-warranty">
+          <div class="trust-badge-icon" aria-hidden="true">
+            <svg class="trust-badge-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px;">
+              <defs>
+                <linearGradient id="trust-warranty-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFB200" />
+                  <stop offset="100%" stop-color="#ea580c" />
+                </linearGradient>
+                <linearGradient id="trust-medal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+                  <stop offset="100%" stop-color="#FFEAA7" stop-opacity="0.4" />
+                </linearGradient>
+              </defs>
+              <circle cx="24" cy="24" r="20" fill="url(#trust-warranty-grad)" opacity="0.12" />
+              <path class="trust-anim-ribbon-left" d="M19 22l-3 17 4-2 4 2-2-12.5" fill="url(#trust-warranty-grad)" opacity="0.75" />
+              <path class="trust-anim-ribbon-right" d="M29 22l3 17-4-2-4 2 2-12.5" fill="url(#trust-warranty-grad)" />
+              <circle class="trust-anim-medal" cx="24" cy="20" r="11" fill="url(#trust-medal-grad)" stroke="url(#trust-warranty-grad)" stroke-width="1.8" />
+              <path class="trust-anim-star-one" d="M24 13.5l1 2.2h2.4l-1.9 1.4.7 2.2-1.9-1.4-1.9 1.4.7-2.2-1.9-1.4h2.4z" fill="url(#trust-warranty-grad)" />
+              <circle cx="13" cy="30" r="1.5" fill="#FFB200" />
+            </svg>
+          </div>
+          <h3 class="trust-badge-title">Quality Assurance</h3>
+          <p class="trust-badge-desc">Every single service booking is fully backed by our satisfaction warranty
+            protection.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. TESTIMONIALS SECTION -->
+    <section id="testimonials" class="section-padding scroll-reveal">
+      <!-- Soft Ambient Glow Backgrounds -->
+      <div class="testimonial-glow-1"></div>
+      <div class="testimonial-glow-2"></div>
+      <div class="testimonial-particle particle-1"></div>
+      <div class="testimonial-particle particle-2"></div>
+      <div class="testimonial-particle particle-3"></div>
+
+      <h2 class="section-title">What Our Customers Say</h2>
+      <p class="section-subtitle">Real feedback from actual homes. We let our community ratings explain our standards.</p>
+
+      <div class="testimonials-viewport">
+        <div class="testimonials-track" id="testimonials-track">
+          <!-- Card 1: Rahul Sharma -->
+          <div class="testimonial-card glass-panel" data-index="0">
+            <div class="testimonial-card-header">
+              <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
+              <div class="quote-decal">“</div>
+            </div>
+            <p class="testimonial-text">"GRED has completely redefined home services for our family in Kochi. I booked an emergency plumbing service late in the evening. The specialist arrived in under 20 minutes, handled the pipe leak with extreme precision, and the digital escrow checkout gave us absolute confidence!"</p>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">RS</div>
+              <div class="testimonial-user-info">
+                <h5>Rahul Sharma</h5>
+                <span>Kochi</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Priya Nair -->
+          <div class="testimonial-card glass-panel" data-index="1">
+            <div class="testimonial-card-header">
+              <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
+              <div class="quote-decal">“</div>
+            </div>
+            <p class="testimonial-text">"Excellent platform! Booking a deep cleaning service for our apartment in Kakkanad was incredibly seamless. The team was highly professional, fully equipped, and left every corner of the house sparkling clean. The upfront pricing eliminates any awkward negotiations."</p>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">PN</div>
+              <div class="testimonial-user-info">
+                <h5>Priya Nair</h5>
+                <span>Kakkanad</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Rohit Verma -->
+          <div class="testimonial-card glass-panel" data-index="2">
+            <div class="testimonial-card-header">
+              <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
+              <div class="quote-decal">“</div>
+            </div>
+            <p class="testimonial-text">"Finding a trusted electrician in Thrissur used to be a chore. With GRED, I got a verified partner matched in minutes. He resolved our complex inverter wiring issue perfectly. The level of transparency is exactly what modern home services should feel like!"</p>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">RV</div>
+              <div class="testimonial-user-info">
+                <h5>Rohit Verma</h5>
+                <span>Thrissur</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Ananya Sharma -->
+          <div class="testimonial-card glass-panel" data-index="3">
+            <div class="testimonial-card-header">
+              <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
+              <div class="quote-decal">“</div>
+            </div>
+            <p class="testimonial-text">"I am extremely impressed by GRED's quality standards. I booked an emergency AC maintenance service in Kannur. The technician was polite, highly skilled, and completed the work cleanly. The customer support team followed up instantly. Absolutely top-tier service!"</p>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">AS</div>
+              <div class="testimonial-user-info">
+                <h5>Ananya Sharma</h5>
+                <span>Kannur</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Sneha Menon -->
+          <div class="testimonial-card glass-panel" data-index="4">
+            <div class="testimonial-card-header">
+              <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
+              <div class="quote-decal">“</div>
+            </div>
+            <p class="testimonial-text">"GRED's booking flow is so fast and satisfying! When our kitchen sink backed up during a family gathering in Alappuzha, a dispatch plumber was matched and arrived within 15 minutes. He was respectful, quick, and pricing was incredibly fair."</p>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">SM</div>
+              <div class="testimonial-user-info">
+                <h5>Sneha Menon</h5>
+                <span>Alappuzha</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Vivek Pillai -->
+          <div class="testimonial-card glass-panel" data-index="5">
+            <div class="testimonial-card-header">
+              <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
+              <div class="quote-decal">“</div>
+            </div>
+            <p class="testimonial-text">"For working professionals, GRED is an absolute lifesaver. I scheduled a comprehensive car wash and interior detailing at our home in Kozhikode. The partner arrived precisely on time and did a premium job. Highly recommend GRED to everyone!"</p>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">VP</div>
+              <div class="testimonial-user-info">
+                <h5>Vivek Pillai</h5>
+                <span>Kozhikode</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7: Kavya Reddy -->
+          <div class="testimonial-card glass-panel" data-index="6">
+            <div class="testimonial-card-header">
+              <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
+              <div class="quote-decal">“</div>
+            </div>
+            <p class="testimonial-text">"The safety standards on GRED are what make them stand out. Knowing that every business provider goes through strict background checks gave me peace of mind when booking an electrical service in Kottayam. Reliable, professional, and very premium."</p>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">KR</div>
+              <div class="testimonial-user-info">
+                <h5>Kavya Reddy</h5>
+                <span>Kottayam</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8: Aditya Menon -->
+          <div class="testimonial-card glass-panel" data-index="7">
+            <div class="testimonial-card-header">
+              <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
+              <div class="quote-decal">“</div>
+            </div>
+            <p class="testimonial-text">"Incredible user experience! I booked a quick sofa sanitization service in Malappuram. The matching process took seconds, and the pro was highly trained. The results were outstanding and exceeded our expectations. GRED is a game-changer!"</p>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">AM</div>
+              <div class="testimonial-user-info">
+                <h5>Aditya Menon</h5>
+                <span>Malappuram</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 9: Rohan Kulkarni -->
+          <div class="testimonial-card glass-panel" data-index="8">
+            <div class="testimonial-card-header">
+              <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
+              <div class="quote-decal">“</div>
+            </div>
+            <p class="testimonial-text">"GRED is easily the best tech product out of Kerala. I scheduled an emergency appliance repair in Trivandrum. The technician diagnosed and resolved the issue under half an hour. The flat-rate quotes and polite service made it a delight!"</p>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">RK</div>
+              <div class="testimonial-user-info">
+                <h5>Rohan Kulkarni</h5>
+                <span>Trivandrum</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Controls -->
+      <div class="testimonials-controls">
+        <div class="testimonials-indicators" id="testimonials-indicators"></div>
+      </div>
+    </section>
+
+    <!-- 8. STATS SECTION (Animated Counters) -->
+    <section id="stats" class="section-padding scroll-reveal">
+      <h2 class="section-title" style="display: none;">Milestone Achievements</h2>
+      
+      <!-- Premium Animated Tech Dot Particles -->
+      <div class="stats-dots-container" aria-hidden="true">
+        <div class="stats-dot" style="top: 15%; left: 10%; width: 4px; height: 4px; --dx: 22px; --dy: -28px; animation-duration: 14s;"></div>
+        <div class="stats-dot amber" style="top: 35%; left: 25%; width: 3px; height: 3px; --dx: -28px; --dy: 22px; animation-duration: 18s; animation-delay: 2s;"></div>
+        <div class="stats-dot" style="top: 75%; left: 15%; width: 5px; height: 5px; --dx: 18px; --dy: 30px; animation-duration: 16s; animation-delay: 1s;"></div>
+        <div class="stats-dot" style="top: 20%; left: 45%; width: 3px; height: 3px; --dx: -26px; --dy: -18px; animation-duration: 20s;"></div>
+        <div class="stats-dot amber" style="top: 60%; left: 55%; width: 4px; height: 4px; --dx: 22px; --dy: -22px; animation-duration: 15s; animation-delay: 3s;"></div>
+        <div class="stats-dot" style="top: 10%; left: 75%; width: 4px; height: 4px; --dx: -18px; --dy: 26px; animation-duration: 17s; animation-delay: 1.5s;"></div>
+        <div class="stats-dot amber" style="top: 45%; left: 85%; width: 3px; height: 3px; --dx: 28px; --dy: -18px; animation-duration: 19s; animation-delay: 4s;"></div>
+        <div class="stats-dot" style="top: 80%; left: 70%; width: 5px; height: 5px; --dx: -18px; --dy: -26px; animation-duration: 13s; animation-delay: 0.5s;"></div>
+        <div class="stats-dot amber" style="top: 70%; left: 35%; width: 4px; height: 4px; --dx: 28px; --dy: 18px; animation-duration: 21s; animation-delay: 2.5s;"></div>
+        <div class="stats-dot" style="top: 30%; left: 65%; width: 3px; height: 3px; --dx: -18px; --dy: -32px; animation-duration: 15s; animation-delay: 5s;"></div>
+        <div class="stats-dot" style="top: 90%; left: 90%; width: 4px; height: 4px; --dx: -22px; --dy: 18px; animation-duration: 16s; animation-delay: 3s;"></div>
+        <div class="stats-dot amber" style="top: 5%; left: 35%; width: 4px; height: 4px; --dx: 18px; --dy: -12px; animation-duration: 18s; animation-delay: 1s;"></div>
+      </div>
+
+      <div class="stats-grid">
+        <!-- Stat 1 -->
+        <div class="stat-item glass-panel" id="stat-card-customers">
+          <div class="stat-number" id="counter-customers" data-target="500">0</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="stat-item glass-panel" id="stat-card-completed">
+          <div class="stat-number" id="counter-completed" data-target="1000">0</div>
+          <div class="stat-label">Services Completed</div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="stat-item glass-panel" id="stat-card-providers">
+          <div class="stat-number" id="counter-providers" data-target="250">0</div>
+          <div class="stat-label">Verified Providers</div>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="stat-item glass-panel" id="stat-card-cities">
+          <div class="stat-number" id="counter-cities" data-target="24">0</div>
+          <div class="stat-label">24+ Cities Expanding Soon</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FAQ SECTION -->
+    <section id="faq" class="section-padding scroll-reveal">
+      <!-- Soft Ambient Glow Backgrounds -->
+      <div class="faq-glow-1"></div>
+      <div class="faq-glow-2"></div>
+      <div class="faq-particle faq-p-1"></div>
+      <div class="faq-particle faq-p-2"></div>
+      <div class="faq-particle faq-p-3"></div>
+
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Got questions? We have laid out clear answers to clarify GRED's marketplace standards.</p>
+
+      <div class="faq-container">
+        <!-- FAQ 1: Verification -->
+        <div class="faq-item glass-panel" id="faq-item-1">
+          <div class="faq-header" id="faq-header-1" aria-expanded="false" aria-controls="faq-answer-1" role="button" tabindex="0">
+            <span class="faq-question">How does GRED verify its service providers?</span>
+            <div class="faq-chevron-wrapper">
+              <svg class="faq-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-body" id="faq-answer-1">
+            <div class="faq-answer">
+              Every service partner on GRED undergoes a strict onboarding cycle. We check government registrations, verify active service liability insurance, review past ratings, and run mandatory face-to-face background checks on all dispatch technicians.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2: Pricing -->
+        <div class="faq-item glass-panel" id="faq-item-2">
+          <div class="faq-header" id="faq-header-2" aria-expanded="false" aria-controls="faq-answer-2" role="button" tabindex="0">
+            <span class="faq-question">Are there any hidden fees or extra travel charges?</span>
+            <div class="faq-chevron-wrapper">
+              <svg class="faq-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-body" id="faq-answer-2">
+            <div class="faq-answer">
+              No. GRED is committed to absolute billing honesty. The flat estimate shown in the checkout dashboard before clicking booking confirmation is the exact amount you pay. Standard tax calculations are fully integrated, with no sudden provider fees.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3: Quality Standards -->
+        <div class="faq-item glass-panel" id="faq-item-3">
+          <div class="faq-header" id="faq-header-3" aria-expanded="false" aria-controls="faq-answer-3" role="button" tabindex="0">
+            <span class="faq-question">How does GRED maintain service quality?</span>
+            <div class="faq-chevron-wrapper">
+              <svg class="faq-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-body" id="faq-answer-3">
+            <div class="faq-answer">
+              Customers can rate and review every completed booking. Service agencies with repeated poor ratings are warned, monitored, and may be removed from the platform to maintain premium standards.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4: Live Tracking -->
+        <div class="faq-item glass-panel" id="faq-item-4">
+          <div class="faq-header" id="faq-header-4" aria-expanded="false" aria-controls="faq-answer-4" role="button" tabindex="0">
+            <span class="faq-question">Can I track my service provider live?</span>
+            <div class="faq-chevron-wrapper">
+              <svg class="faq-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-body" id="faq-answer-4">
+            <div class="faq-answer">
+              Yes. GRED provides real-time provider tracking so customers can monitor arrival progress and estimated timing directly inside the platform.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5: Rescheduling / Cancellation -->
+        <div class="faq-item glass-panel" id="faq-item-5">
+          <div class="faq-header" id="faq-header-5" aria-expanded="false" aria-controls="faq-answer-5" role="button" tabindex="0">
+            <span class="faq-question">Can I reschedule or cancel my booking easily?</span>
+            <div class="faq-chevron-wrapper">
+              <svg class="faq-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-body" id="faq-answer-5">
+            <div class="faq-answer">
+              Absolutely. Bookings can be cancelled or rescheduled with absolute flexibility up to 3 hours prior to the scheduled start window with zero penalties. You can configure this directly inside the bookings history screen of the app.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. CONNECT / CONTACT SHOWCASE SECTION -->
+    <section id="contact" class="showcase-section section-padding scroll-reveal">
+      <!-- Soft orange ambient glows and particle layers -->
+      <div class="showcase-bg-effects" aria-hidden="true">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <!-- Subtle tech background grid/dots -->
+        <div class="showcase-grid-dots"></div>
+      </div>
+
+      <div class="showcase-container">
+        <!-- CENTER CONTENT: Brand Lockup & Heading -->
+        <div class="showcase-center">
+          <div class="showcase-brand-tag">GRED Marketplace</div>
+          <h2 class="showcase-main-title">India’s First Quick Marketplace</h2>
+          <p class="showcase-subtitle">On-demand home services designed for modern urban households with real-time dispatch and verified professionals.</p>
+        </div>
+
+        <!-- Consolidated Pre-rendered Illustration Image -->
+        <div class="showcase-image-container">
+          <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779447195/file_00000000fe6071f7bef2d7571a211aa5_ncffqi.png" alt="GRED Marketplace Showcase" class="showcase-main-img" />
+        </div>
+
+        <!-- App Store + Play Store Badge Buttons (Centered directly below the illustration on all viewports) -->
+        <div class="showcase-app-buttons">
+          <!-- App Store Link -->
+          <a href="javascript:void(0)" class="store-badge-btn" id="showcase-btn-appstore" aria-label="Download on App Store">
+            <div class="store-badge-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.21.67-2.93 1.49-.62.69-1.16 1.84-1.01 2.96 1.12.09 2.27-.58 2.95-1.39z"/>
+              </svg>
+            </div>
+            <div class="store-badge-text">
+              <span class="store-pre">Download on the</span>
+              <span class="store-title">App Store</span>
+            </div>
+          </a>
+
+          <!-- Google Play Link -->
+          <a href="javascript:void(0)" class="store-badge-btn" id="showcase-btn-googleplay" aria-label="Get it on Google Play">
+            <div class="store-badge-icon">
+              <svg viewBox="0 0 512 512" fill="currentColor" style="width: 24px; height: 24px;">
+                <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+              </svg>
+            </div>
+            <div class="store-badge-text">
+              <span class="store-pre">GET IT ON</span>
+              <span class="store-title">Google Play</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- BOTTOM AREA: Soft Floating Service outline tags -->
+        <div class="showcase-bottom-tags">
+          <div class="bottom-tag glass-panel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <span>House Help</span>
+          </div>
+          <div class="bottom-tag glass-panel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <circle cx="12" cy="11" r="3"/>
+            </svg>
+            <span>Deep Cleaner</span>
+          </div>
+          <div class="bottom-tag glass-panel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            <span>Plumbing</span>
+          </div>
+          <div class="bottom-tag glass-panel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+            <span>Electrical</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FOOTER SECTION -->
+    <footer class="footer-section">
+      <div class="footer-top">
+        <!-- Col 1: Brand details -->
+        <div class="footer-brand">
+          <h4 id="footer-logo-header">
+            <img src="logo.png?v=3" alt="GRED Logo" class="footer-brand-logo" />
+            GRED
+          </h4>
+          <p>A premium on-demand hyperlocal marketplace bringing vetted, expert home solutions right to your doorstep.
+          </p>
+        </div>
+
+        <!-- Col 2: Services Quick Links -->
+        <div class="footer-col">
+          <h5>Services</h5>
+          <div class="footer-links">
+            <a href="/?scroll=services" data-scroll-target="services" id="footer-link-cleaning">Home Cleaning</a>
+            <a href="/?scroll=services" data-scroll-target="services" id="footer-link-plumbing">Plumbing Services</a>
+            <a href="/?scroll=services" data-scroll-target="services" id="footer-link-electrical">Electrical Repairs</a>
+            <a href="/?scroll=services" data-scroll-target="services" id="footer-link-car">Car Service</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Company Links -->
+        <div class="footer-col">
+          <h5>Company</h5>
+          <div class="footer-links">
+            <a href="/?scroll=about" data-scroll-target="about" id="footer-link-about">About Us</a>
+            <a href="/?scroll=how-it-works" data-scroll-target="how-it-works" id="footer-link-how">How it Works</a>
+            <a href="/?scroll=why-choose" data-scroll-target="why-choose" id="footer-link-why">Why Choose Us</a>
+            <a href="/?scroll=faq" data-scroll-target="faq" id="footer-link-faq">Help FAQs</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Connect With GRED -->
+        <div class="footer-col footer-connect">
+          <h5>Connect With GRED</h5>
+          <p>Follow GRED across our social platforms and stay connected with our latest updates and services.</p>
+          <div class="social-links-container">
+            <a href="https://www.instagram.com/gred.now/" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+              </svg>
+            </a>
+            <a href="https://x.com/Gred_now" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/gredstore/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="mailto:storegred@gmail.com" class="social-icon-link" aria-label="Gmail">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/share/1BVx62pvSJ/" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p id="copyright-text">&copy; 2026 GRED. All rights reserved. Vetted partners on active warranty schedules.</p>
+        <div class="footer-bottom-links">
+          <a href="terms-of-service.html" id="footer-link-tos">Terms of Service</a>
+          <a href="privacy-policy.html" id="footer-link-privacy">Privacy Policy</a>
+          <a href="delete-data.html" id="footer-link-delete-data">Delete Account Data</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js?v=2"></script>
+</body>
+
+</html>
+
