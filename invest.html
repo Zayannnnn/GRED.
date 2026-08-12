@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invest in GRED - Kerala's Next-Gen Hyperlocal Infrastructure</title>
+  
+  <!-- Preconnect and Outfit Google Font -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#F59E0B" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- Main Stylesheet Link -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Invest Page Specific Stylesheet -->
+  <style>
+    /* Reset & Typography inherits from style.css, overriding specifically for page theme */
+    body {
+      background-color: #fcf8f2;
+      color: #1e293b;
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Full-Bleed Elegant background system */
+    .invest-bg-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .invest-glow-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.35;
+      animation: driftSlow 25s infinite alternate ease-in-out;
+    }
+
+    .invest-glow-blob.blob-1 {
+      width: 60vw;
+      height: 60vw;
+      background: radial-gradient(circle, rgba(247, 166, 0, 0.25) 0%, transparent 70%);
+      top: -10%;
+      left: -10%;
+    }
+
+    .invest-glow-blob.blob-2 {
+      width: 50vw;
+      height: 50vw;
+      background: radial-gradient(circle, rgba(234, 88, 12, 0.2) 0%, transparent 70%);
+      bottom: 20%;
+      right: -10%;
+      animation-delay: -5s;
+    }
+
+    .invest-glow-blob.blob-3 {
+      width: 45vw;
+      height: 45vw;
+      background: radial-gradient(circle, rgba(255, 170, 0, 0.15) 0%, transparent 70%);
+      top: 30%;
+      left: 25%;
+      animation: driftSlow 30s infinite alternate-reverse ease-in-out;
+      animation-delay: -2s;
+    }
+
+    .invest-dots-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(247, 166, 0, 0.08) 1.2px, transparent 1.2px);
+      background-size: 30px 30px;
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    /* Header adjustments to support back navigation */
+    .invest-header {
+      width: 100%;
+      padding: 24px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 100;
+    }
+
+    .invest-brand-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .invest-brand-text {
+      font-size: 1.88rem;
+      font-weight: 900;
+      letter-spacing: -1.2px;
+      display: inline-block;
+      padding-right: 6px;
+      background: linear-gradient(135deg, #111111 0%, #334155 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .back-home-btn {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1e293b;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .back-home-btn:hover {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Centered Hero Section style */
+    .invest-hero {
+      padding: 80px 8% 60px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .invest-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(247, 166, 0, 0.08);
+      border: 1px solid rgba(247, 166, 0, 0.18);
+      color: #ea580c;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 15px rgba(247, 166, 0, 0.03);
+    }
+
+    .invest-hero-title {
+      font-size: clamp(2.3rem, 5.5vw, 4.2rem);
+      font-weight: 900;
+      color: #111111;
+      line-height: 1.15;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .invest-hero-title span {
+      color: #ea580c;
+    }
+
+    .invest-hero-desc {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      line-height: 1.65;
+      color: #475569;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    /* Stat Cards Grid Layout */
+    .invest-stats-padding {
+      padding: 60px 8% 90px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .invest-section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .invest-section-title {
+      font-size: clamp(1.9rem, 3.8vw, 2.6rem);
+      font-weight: 900;
+      color: #111111;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .invest-section-subtitle {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: #64748b;
+    }
+
+    .invest-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .invest-stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(247, 166, 0, 0.14);
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: 
+        0 10px 30px rgba(247, 166, 0, 0.04), 
+        0 1px 3px rgba(0, 0, 0, 0.02);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .invest-stat-card:hover {
+      transform: translateY(-5px); /* Elegant slight lift ONLY */
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(247, 166, 0, 0.35);
+      box-shadow: 
+        0 20px 45px rgba(247, 166, 0, 0.12),
+        0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .invest-stat-illustration {
+      width: 100%;
+      height: 110px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .invest-stat-illustration svg {
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      transition: all 0.4s ease;
+      filter: drop-shadow(0 8px 16px rgba(247, 166, 0, 0.06));
+    }
+
+    .invest-stat-card:hover .invest-stat-illustration svg {
+      transform: scale(1.03);
+      filter: drop-shadow(0 12px 24px rgba(247, 166, 0, 0.14));
+    }
+
+    .invest-stat-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #111111;
+      margin-bottom: 10px;
+      letter-spacing: -0.4px;
+      line-height: 1.25;
+    }
+
+    .invest-stat-desc {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: #475569;
+    }
+
+    /* Professional Form Section style */
+    .invest-form-section {
+      padding: 40px 8% 120px;
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .invest-form-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 36px;
+      padding: 56px 48px;
+      box-shadow: 0 28px 75px rgba(15, 23, 42, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .invest-form-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #f7a600, #ffb81c);
+    }
+
+    .invest-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .invest-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .invest-form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .invest-form-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #1e293b;
+      letter-spacing: 0.02em;
+    }
+
+    .invest-form-input, .invest-form-select, .invest-form-textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      background: rgba(255, 255, 255, 0.6);
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: #0f172a;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .invest-form-input:focus, .invest-form-select:focus, .invest-form-textarea:focus {
+      outline: none;
+      border-color: #f7a600;
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(247, 166, 0, 0.12), 0 4px 12px rgba(247, 166, 0, 0.05);
+    }
+
+    .invest-form-textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .invest-submit-btn {
+      width: 100%;
+      padding: 16px 32px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 178, 0, 0.15);
+      background: #f7a600;
+      color: #111111;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(247, 166, 0, 0.25);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .invest-submit-btn:hover {
+      background: #FFA500;
+      color: #000000;
+      border-color: #FFA500;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(255, 178, 0, 0.38);
+    }
+
+    /* Footer styling */
+    .invest-footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.06);
+      background: #ffffff;
+      padding: 30px 8%;
+      text-align: center;
+      font-size: 0.88rem;
+      color: #64748b;
+    }
+
+    /* Floating keyframe blurs */
+    @keyframes driftSlow {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(6vw, -3vh) scale(1.06); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .invest-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .invest-stat-card {
+        padding: 28px 22px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .invest-header {
+        padding: 16px 5%;
+      }
+      .invest-hero {
+        padding: 40px 5% 30px;
+      }
+      .invest-stats-padding {
+        padding: 30px 5% 40px; /* Reduced vertical spacing to avoid empty whitespace */
+      }
+      .invest-section-header {
+        margin-bottom: 24px; /* Tighter heading-grid spacing */
+      }
+      .invest-form-section {
+        padding: 20px 5% 80px;
+      }
+      .invest-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px; /* Snugger layout gap */
+      }
+      .invest-stat-card {
+        padding: 20px; /* Compact padding to remove dead space */
+        border-radius: 22px;
+        text-align: center; /* Beautiful center alignment on mobile */
+      }
+      .invest-stat-illustration {
+        height: 90px; /* Highly compact illustration height on mobile */
+        margin-bottom: 12px;
+      }
+      .invest-stat-title {
+        font-size: 1.12rem;
+        margin-bottom: 6px;
+      }
+      .invest-stat-desc {
+        font-size: 0.85rem;
+        line-height: 1.45;
+      }
+      .invest-form-card {
+        padding: 30px 20px;
+        border-radius: 24px;
+      }
+      .invest-form-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .invest-form-group.full-width {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Glow Wrappers -->
+  <div class="invest-bg-wrapper">
+    <div class="invest-glow-blob blob-1" aria-hidden="true"></div>
+    <div class="invest-glow-blob blob-2" aria-hidden="true"></div>
+    <div class="invest-glow-blob blob-3" aria-hidden="true"></div>
+    <div class="invest-dots-grid" aria-hidden="true"></div>
+  </div>
+
+  <!-- Page Header -->
+  <header class="invest-header">
+    <a class="invest-brand-link" href="/" aria-label="GRED home">
+      <span class="invest-brand-text">GRED</span>
+    </a>
+    <a href="/" class="back-home-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back to Home
+    </a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="invest-hero">
+    <span class="invest-tag">Investor Relations</span>
+    <h1 class="invest-hero-title">Invest In The Future Of <span>Hyperlocal Services</span></h1>
+    <p class="invest-hero-desc">
+      GRED is building Kerala’s next-generation service marketplace infrastructure powered by verified partner networks, real-time dispatch systems, and scalable city-wide operations.
+    </p>
+  </section>
+
+  <!-- Metrics Grid Section -->
+  <section class="invest-stats-padding">
+    <div class="invest-section-header">
+      <h2 class="invest-section-title">Why Smart Capital Backs GRED</h2>
+      <p class="invest-section-subtitle">Our structural business model yields elite margins, instant dispatch liquidity, and robust local growth loops.</p>
+    </div>
+    
+    <div class="invest-stats-grid">
+      <!-- Card 1 -->
+      <div class="invest-stat-card">
+        <div class="invest-stat-illustration" aria-hidden="true">
+          <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="hubGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFB200" />
+                <stop offset="100%" stop-color="#ea580c" />
+              </linearGradient>
+              <filter id="hubGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <path d="M20 50 L100 10 L180 50 L100 90 Z" stroke="rgba(247,166,0,0.15)" stroke-width="1.5" />
+            <path d="M60 50 L100 30 L140 50 L100 70 Z" stroke="rgba(247,166,0,0.12)" stroke-width="1" />
+            <line x1="100" y1="50" x2="60" y2="30" stroke="url(#hubGrad)" stroke-width="1.5" stroke-dasharray="3 3" />
+            <line x1="100" y1="50" x2="140" y2="30" stroke="url(#hubGrad)" stroke-width="1.5" stroke-dasharray="3 3" />
+            <line x1="100" y1="50" x2="60" y2="70" stroke="url(#hubGrad)" stroke-width="1.5" stroke-dasharray="3 3" />
+            <line x1="100" y1="50" x2="140" y2="70" stroke="url(#hubGrad)" stroke-width="1.5" stroke-dasharray="3 3" />
+            <circle cx="100" cy="50" r="8" fill="url(#hubGrad)" filter="url(#hubGlow)" />
+            <circle cx="60" cy="30" r="5" fill="#ea580c" />
+            <circle cx="140" cy="30" r="5" fill="#FFB200" />
+            <circle cx="60" cy="70" r="5" fill="#FFB200" />
+            <circle cx="140" cy="70" r="5" fill="#ea580c" />
+            <circle cx="100" cy="50" r="16" stroke="#FFB200" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 4" />
+          </svg>
+        </div>
+        <h3 class="invest-stat-title">City-Wise Hub Matrix</h3>
+        <p class="invest-stat-desc">Fully localized marketplace systems that balance supply and demand coordinates to maximize active specialist utilization.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="invest-stat-card">
+        <div class="invest-stat-illustration" aria-hidden="true">
+          <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="routeGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFD200" />
+                <stop offset="100%" stop-color="#ea580c" />
+              </linearGradient>
+            </defs>
+            <path d="M30 50 L100 15 L170 50 L100 85 Z" fill="rgba(247,166,0,0.03)" stroke="rgba(247,166,0,0.12)" stroke-width="1.5" />
+            <path d="M50 50 Q 80 25, 100 55 T 150 50" stroke="rgba(247,166,0,0.15)" stroke-width="2" />
+            <path d="M60 45 Q 85 28, 100 55 T 135 48" stroke="url(#routeGrad)" stroke-width="3" stroke-linecap="round" />
+            <g transform="translate(130, 25)">
+              <path d="M8 0 C3.58 0 0 3.58 0 8 C0 14 8 20 8 20 C8 20 16 14 16 8 C16 3.58 12.42 0 8 0 Z" fill="#ea580c" />
+              <circle cx="8" cy="8" r="3" fill="#ffffff" />
+            </g>
+            <circle cx="90" cy="40" r="5" fill="#FFB200" stroke="#ffffff" stroke-width="1" />
+          </svg>
+        </div>
+        <h3 class="invest-stat-title">Real-Time Routing</h3>
+        <p class="invest-stat-desc">Automated, low-latency provider matching matrix featuring integrated live GPS tracking to guarantee timely arrivals.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="invest-stat-card">
+        <div class="invest-stat-illustration" aria-hidden="true">
+          <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="catGrad1" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="100%" stop-color="#f8fafc" />
+              </linearGradient>
+              <linearGradient id="catGrad2" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFB200" />
+                <stop offset="100%" stop-color="#ea580c" />
+              </linearGradient>
+            </defs>
+            <path d="M65 65 L125 35 L165 55 L105 85 Z" fill="rgba(247,166,0,0.06)" stroke="rgba(247,166,0,0.15)" stroke-width="1.2" />
+            <path d="M50 50 L110 20 L150 40 L90 70 Z" fill="rgba(255,255,255,0.7)" stroke="rgba(247,166,0,0.2)" stroke-width="1.2" />
+            <circle cx="85" cy="40" r="3.5" fill="#94a3b8" />
+            <path d="M100 37 L130 22" stroke="#cbd5e1" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M95 45 L120 32" stroke="#e2e8f0" stroke-width="2" stroke-linecap="round" />
+            <path d="M35 35 L95 5 L135 25 L75 55 Z" fill="url(#catGrad1)" stroke="url(#catGrad2)" stroke-width="1.5" />
+            <circle cx="70" cy="25" r="5" fill="#ea580c" />
+            <path d="M85 22 L115 7" stroke="url(#catGrad2)" stroke-width="3" stroke-linecap="round" />
+            <path d="M80 30 L105 17" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+        <h3 class="invest-stat-title">Scalable Catalog</h3>
+        <p class="invest-stat-desc">Adaptable platform architecture spanning domestic support, repairs, plumbing, electrical, and car services within a single system.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="invest-stat-card">
+        <div class="invest-stat-illustration" aria-hidden="true">
+          <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="shieldGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#10b981" />
+                <stop offset="100%" stop-color="#059669" />
+              </linearGradient>
+              <linearGradient id="goldRing" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFD200" />
+                <stop offset="100%" stop-color="#ea580c" />
+              </linearGradient>
+            </defs>
+            <ellipse cx="100" cy="50" rx="60" ry="25" stroke="url(#goldRing)" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.6" />
+            <ellipse cx="100" cy="50" rx="45" ry="18" stroke="url(#goldRing)" stroke-width="1.2" opacity="0.3" />
+            <circle cx="100" cy="50" r="24" fill="rgba(16, 185, 129, 0.06)" />
+            <g transform="translate(85, 30)">
+              <path d="M15 0 L30 5 C30 18 20 28 15 32 C10 28 0 18 0 5 Z" fill="url(#shieldGrad)" stroke="#ffffff" stroke-width="2" />
+              <path d="M9 16 L13 20 L21 11" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+            <circle cx="45" cy="40" r="4.5" fill="#10b981" />
+            <circle cx="155" cy="60" r="4.5" fill="#ea580c" />
+          </svg>
+        </div>
+        <h3 class="invest-stat-title">Verified Quality Loops</h3>
+        <p class="invest-stat-desc">Elite craftsmanship built upon standard 5-step background vetting, user reviews, and comprehensive service warranties.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="invest-stat-card">
+        <div class="invest-stat-illustration" aria-hidden="true">
+          <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="chartGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFB200" />
+                <stop offset="100%" stop-color="#ea580c" />
+              </linearGradient>
+            </defs>
+            <path d="M30 65 L100 30 L170 65 L100 100 Z" fill="rgba(247,166,0,0.03)" stroke="rgba(247,166,0,0.1)" stroke-width="1" />
+            <g transform="translate(60, 48)">
+              <path d="M0 12 L10 7 L20 12 L10 17 Z" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="0.8" />
+              <path d="M0 12 L0 32 L10 37 L10 17 Z" fill="#cbd5e1" />
+              <path d="M10 17 L10 37 L20 32 L20 12 Z" fill="#94a3b8" />
+            </g>
+            <g transform="translate(90, 32)">
+              <path d="M0 12 L10 7 L20 12 L10 17 Z" fill="rgba(247,166,0,0.3)" stroke="rgba(247,166,0,0.4)" stroke-width="0.8" />
+              <path d="M0 12 L0 48 L10 53 L10 17 Z" fill="rgba(247,166,0,0.45)" />
+              <path d="M10 17 L10 48 L20 43 L20 12 Z" fill="rgba(234,88,12,0.5)" />
+            </g>
+            <g transform="translate(120, 15)">
+              <path d="M0 12 L10 7 L20 12 L10 17 Z" fill="url(#chartGrad)" />
+              <path d="M0 12 L0 65 L10 70 L10 17 Z" fill="#ea580c" />
+              <path d="M10 17 L10 70 L20 65 L20 12 Z" fill="#b91c1c" />
+            </g>
+            <path d="M55 58 L85 45 L115 28 L142 16" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M132 16 L142 16 L142 26" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <h3 class="invest-stat-title">Low Asset Overhead</h3>
+        <p class="invest-stat-desc">Highly optimized capital structure driving outstanding capital efficiency and powerful cash margins at maturity.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="invest-stat-card">
+        <div class="invest-stat-illustration" aria-hidden="true">
+          <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="infinityLoop" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFB200" />
+                <stop offset="50%" stop-color="#ea580c" />
+                <stop offset="100%" stop-color="#FFC933" />
+              </linearGradient>
+              <filter id="loopShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#ea580c" flood-opacity="0.15" />
+              </filter>
+            </defs>
+            <path d="M50 50 C20 20, 20 80, 50 50 C80 20, 120 20, 150 50 C180 80, 180 20, 150 50 C120 80, 80 80, 50 50 Z" stroke="url(#infinityLoop)" stroke-width="4.5" fill="none" stroke-linecap="round" filter="url(#loopShadow)" />
+            <circle cx="50" cy="50" r="6" fill="#1e293b" stroke="#ffffff" stroke-width="1.2" />
+            <circle cx="150" cy="50" r="6" fill="#1e293b" stroke="#ffffff" stroke-width="1.2" />
+            <circle cx="100" cy="50" r="5" fill="#ea580c" />
+            <path d="M100 20 L102 24 L106 24 L103 27 L104 31 L100 29 L96 31 L97 27 L94 24 L98 24 Z" fill="#FFB200" />
+            <path d="M55 75 L56.5 78 L59.5 78 L57 80.5 L58 83.5 L55 82 L52 83.5 L53 80.5 L50.5 78 L53.5 78 Z" fill="#10b981" />
+          </svg>
+        </div>
+        <h3 class="invest-stat-title">Robust Loyalty Loops</h3>
+        <p class="invest-stat-desc">High-frequency user engagement models supported by escrow payments, driving superior customer lifetime value (LTV).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section class="invest-form-section">
+    <div class="invest-form-card">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span style="font-size: 0.75rem; font-weight: 800; color: #ea580c; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 8px;">Let's Connect</span>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: #000000; letter-spacing: -0.5px;">Investor Inquiry Desk</h2>
+        <p style="font-size: 0.9rem; color: #64748b; margin-top: 8px;">Fill in the form below. Our corporate development team will initiate contact within 24 hours.</p>
+      </div>
+
+      <!-- 
+        DEVELOPER ACTIVATION NOTE:
+        1. Web3Forms will not work if the page is opened directly as an HTML file (via the file:// protocol).
+        2. You MUST run the project using a local web server (e.g. VS Code "Live Server" extension) at http://localhost:5500 or http://127.0.0.1:5500.
+        3. The first form submission requires activating Web3Forms through the verification email sent to storegred@gmail.com.
+      -->
+
+      <!-- Web3Forms Integration -->
+      <form action="https://api.web3forms.com/submit" method="POST" class="invest-form">
+        <!-- Hidden inputs for Web3Forms -->
+        <input type="hidden" name="access_key" value="88ebc932-5173-4c09-a4b0-f37e152723a0" />
+        <input type="checkbox" name="botcheck" style="display:none" />
+        <input type="hidden" name="_subject" value="New Investor Inquiry - GRED">
+        <input type="hidden" name="redirect" value="thankyou.html" />
+
+        <div class="invest-form-grid">
+          <div class="invest-form-group">
+            <label for="investor-name" class="invest-form-label">Full Name</label>
+            <input type="text" id="investor-name" name="Full Name" class="invest-form-input" placeholder="e.g. Sandra Nair" required />
+          </div>
+
+          <div class="invest-form-group">
+            <label for="investor-company" class="invest-form-label">Company Name</label>
+            <input type="text" id="investor-company" name="Company Name" class="invest-form-input" placeholder="e.g. Sequoia India / Angel Syndicate" required />
+          </div>
+
+          <div class="invest-form-group">
+            <label for="investor-email" class="invest-form-label">Email Address</label>
+            <input type="email" id="investor-email" name="Email" class="invest-form-input" placeholder="e.g. partner@firm.com" required />
+          </div>
+
+          <div class="invest-form-group">
+            <label for="investor-phone" class="invest-form-label">Phone Number</label>
+            <input type="tel" id="investor-phone" name="Phone Number" class="invest-form-input" placeholder="e.g. +91 98450 12345" required />
+          </div>
+
+          <div class="invest-form-group full-width">
+            <label for="investor-allocation" class="invest-form-label">Expected Allocation / Interest</label>
+            <select id="investor-allocation" name="Investment Interest" class="invest-form-select" required>
+              <option value="" disabled selected>Select expected investment bracket...</option>
+              <option value="Under $25k">Angel Bracket (Under $25k)</option>
+              <option value="$25k - $100k">Seed Bracket ($25k - $100k)</option>
+              <option value="$100k - $500k">Growth Seed ($100k - $500k)</option>
+              <option value="Over $500k">Institutional / Syndicate VC (Over $500k)</option>
+            </select>
+          </div>
+
+          <div class="invest-form-group full-width">
+            <label for="investor-notes" class="invest-form-label">Strategic Investment Notes</label>
+            <textarea id="investor-notes" name="Message" class="invest-form-textarea" placeholder="Detail any strategic scaling synergies, network references, or specific operational timelines..." required></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="invest-submit-btn">
+          Send Investor Inquiry
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Page Footer -->
+  <footer class="invest-footer">
+    <p>&copy; 2026 GRED. All rights reserved. Confidential Investor Documentation.</p>
+  </footer>
+
+</body>
+</html>
