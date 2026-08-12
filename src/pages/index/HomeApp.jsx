@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar.jsx';
 import Drawer from './components/Drawer.jsx';
 import Particles from './components/Particles.jsx';
@@ -17,6 +17,35 @@ import Footer from './components/Footer.jsx';
 
 function HomeApp() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal-active");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Wait for components to paint before observing elements
+    const handle = requestAnimationFrame(() => {
+      document.querySelectorAll(".scroll-reveal").forEach((el) => {
+        observer.observe(el);
+      });
+    });
+
+    return () => {
+      cancelAnimationFrame(handle);
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <>
