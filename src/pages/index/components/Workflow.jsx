@@ -9,6 +9,49 @@ function Workflow() {
   const [lineActiveStates, setLineActiveStates] = useState([false, false, false, false]);
   const [completedStates, setCompletedStates] = useState([false, false, false, false]);
 
+  // States for scroll reveal (reveal-active) to prevent React virtual DOM wipes
+  const [sectionRevealed, setSectionRevealed] = useState(false);
+  const [cardsRevealed, setCardsRevealed] = useState([false, false, false, false]);
+
+  // Manage scroll-reveal intersection observer declaratively inside React (prevents re-render class wipes)
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === "how-it-works") {
+            setSectionRevealed(true);
+          } else if (entry.target.id === "workflow-step-1") {
+            setCardsRevealed(prev => { const n = [...prev]; n[0] = true; return n; });
+          } else if (entry.target.id === "workflow-step-2") {
+            setCardsRevealed(prev => { const n = [...prev]; n[1] = true; return n; });
+          } else if (entry.target.id === "workflow-step-3") {
+            setCardsRevealed(prev => { const n = [...prev]; n[2] = true; return n; });
+          } else if (entry.target.id === "workflow-step-4") {
+            setCardsRevealed(prev => { const n = [...prev]; n[3] = true; return n; });
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const section = sectionRef.current;
+    if (section) {
+      observer.observe(section);
+      const cards = section.querySelectorAll(".workflow-card");
+      cards.forEach(card => observer.observe(card));
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   // Workflow step sequencer logic (matches script.js 388-468)
   useEffect(() => {
     const section = sectionRef.current;
@@ -225,7 +268,7 @@ function Workflow() {
   }, []);
 
   return (
-    <section id="how-it-works" className="section-padding scroll-reveal" ref={sectionRef}>
+    <section id="how-it-works" className={`section-padding scroll-reveal ${sectionRevealed ? 'reveal-active' : ''}`} ref={sectionRef}>
       <div className="grid-overlay" aria-hidden="true"></div>
       <div className="glow-blob-1" aria-hidden="true"></div>
       <div className="glow-blob-2" aria-hidden="true"></div>
@@ -246,7 +289,7 @@ function Workflow() {
 
       <div className="workflow-grid">
         {/* Step 1 */}
-        <div className={`workflow-card scroll-reveal ${activeStates[0] ? 'active' : ''} ${lineActiveStates[0] ? 'line-active' : ''} ${completedStates[0] ? 'completed' : ''}`} id="workflow-step-1">
+        <div className={`workflow-card scroll-reveal ${cardsRevealed[0] ? 'reveal-active' : ''} ${activeStates[0] ? 'active' : ''} ${lineActiveStates[0] ? 'line-active' : ''} ${completedStates[0] ? 'completed' : ''}`} id="workflow-step-1">
           <span className="workflow-badge">Step 1</span>
           <div className="workflow-image-wrapper">
             <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412168/file_0000000062fc723082a1d9267f2d431e_tzovdm.png" alt="Choose Service" className="workflow-img" loading="lazy" />
@@ -256,7 +299,7 @@ function Workflow() {
         </div>
 
         {/* Step 2 */}
-        <div className={`workflow-card scroll-reveal ${activeStates[1] ? 'active' : ''} ${lineActiveStates[1] ? 'line-active' : ''} ${completedStates[1] ? 'completed' : ''}`} id="workflow-step-2">
+        <div className={`workflow-card scroll-reveal ${cardsRevealed[1] ? 'reveal-active' : ''} ${activeStates[1] ? 'active' : ''} ${lineActiveStates[1] ? 'line-active' : ''} ${completedStates[1] ? 'completed' : ''}`} id="workflow-step-2">
           <span className="workflow-badge">Step 2</span>
           <div className="workflow-image-wrapper">
             <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412159/file_00000000126871fbba8352056f10fab5_xsjufi.png" alt="Book Instantly" className="workflow-img" loading="lazy" />
@@ -266,7 +309,7 @@ function Workflow() {
         </div>
 
         {/* Step 3 */}
-        <div className={`workflow-card scroll-reveal ${activeStates[2] ? 'active' : ''} ${lineActiveStates[2] ? 'line-active' : ''} ${completedStates[2] ? 'completed' : ''}`} id="workflow-step-3">
+        <div className={`workflow-card scroll-reveal ${cardsRevealed[2] ? 'reveal-active' : ''} ${activeStates[2] ? 'active' : ''} ${lineActiveStates[2] ? 'line-active' : ''} ${completedStates[2] ? 'completed' : ''}`} id="workflow-step-3">
           <span className="workflow-badge">Step 3</span>
           <div className="workflow-image-wrapper">
             <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412193/file_00000000e8947209a0fec3e90e0f92d1_mmanta.png" alt="Provider Accepts" className="workflow-img" loading="lazy" />
@@ -276,7 +319,7 @@ function Workflow() {
         </div>
 
         {/* Step 4 */}
-        <div className={`workflow-card scroll-reveal ${activeStates[3] ? 'active' : ''} ${lineActiveStates[3] ? 'line-active' : ''} ${completedStates[3] ? 'completed' : ''}`} id="workflow-step-4">
+        <div className={`workflow-card scroll-reveal ${cardsRevealed[3] ? 'reveal-active' : ''} ${activeStates[3] ? 'active' : ''} ${lineActiveStates[3] ? 'line-active' : ''} ${completedStates[3] ? 'completed' : ''}`} id="workflow-step-4">
           <span className="workflow-badge">Step 4</span>
           <div className="workflow-image-wrapper">
             <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412183/file_00000000f310720a8d6073c0d2ce0d6a_yqup8m.png" alt="Work Completed" className="workflow-img" loading="lazy" />
