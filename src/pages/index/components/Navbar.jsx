@@ -37,7 +37,7 @@ function Navbar({ isMenuOpen, setIsMenuOpen }) {
           <a href="/?scroll=trust-safety" onClick={(e) => handleNavLinkClick(e, 'trust-safety')} data-scroll-target="trust-safety">Safety</a>
           <a href="/?scroll=testimonials" onClick={(e) => handleNavLinkClick(e, 'testimonials')} data-scroll-target="testimonials">Reviews</a>
           <a href="/?scroll=faq" onClick={(e) => handleNavLinkClick(e, 'faq')} data-scroll-target="faq">FAQ</a>
-          <a href="invest.html" className="nav-invest-btn">Invest In Us</a>
+          <a href="/invest" className="nav-invest-btn">Invest In Us</a>
         </nav>
 
         <div className="site-header-actions">

@@ -245,7 +245,7 @@ function InvestApp() {
         <input type="hidden" name="access_key" value="88ebc932-5173-4c09-a4b0-f37e152723a0" />
         <input type="checkbox" name="botcheck" style={{display: "none"}} />
         <input type="hidden" name="_subject" value="New Investor Inquiry - GRED" />
-        <input type="hidden" name="redirect" value="thankyou.html" />
+        <input type="hidden" name="redirect" value="/thankyou" />
 
         <div className="invest-form-grid">
           <div className="invest-form-group">

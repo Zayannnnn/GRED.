@@ -181,7 +181,7 @@ function PrivacyPolicyApp() {
         <li>Update their information</li>
         <li>Request account deletion</li>
       </ul>
-      <p>To request data deletion, you can submit an online request directly using our <a className="contact-email" href="delete-data.html">Data Deletion Form</a>, or contact us via email.</p>
+      <p>To request data deletion, you can submit an online request directly using our <a className="contact-email" href="/delete-data">Data Deletion Form</a>, or contact us via email.</p>
     </div>
 
     {/* Section 7 */}
@@ -229,7 +229,7 @@ function PrivacyPolicyApp() {
       {/* Col 1: Brand details */}
       <div className="footer-brand">
         <h4 id="footer-logo-header">
-          <img src="logo.png?v=3" alt="GRED Logo" className="footer-brand-logo" />
+          <img src="/logo.png?v=3" alt="GRED Logo" className="footer-brand-logo" />
           GRED
         </h4>
         <p>A premium on-demand hyperlocal marketplace bringing vetted, expert home solutions right to your doorstep.</p>
@@ -295,9 +295,9 @@ function PrivacyPolicyApp() {
     <div className="footer-bottom">
       <p id="copyright-text">&copy; 2026 GRED. All rights reserved. Vetted partners on active warranty schedules.</p>
       <div className="footer-bottom-links">
-        <a href="terms-of-service.html" id="footer-link-tos">Terms of Service</a>
-        <a href="privacy-policy.html" id="footer-link-privacy">Privacy Policy</a>
-        <a href="delete-data.html" id="footer-link-delete-data">Delete Account Data</a>
+        <a href="/terms-of-service" id="footer-link-tos">Terms of Service</a>
+        <a href="/privacy-policy" id="footer-link-privacy">Privacy Policy</a>
+        <a href="/delete-data" id="footer-link-delete-data">Delete Account Data</a>
       </div>
     </div>
   </footer>

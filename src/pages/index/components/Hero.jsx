@@ -137,7 +137,7 @@ function Hero() {
           <h1 className="hero-heading">Professional On-Demand Home Services at Your Doorstep.</h1>
           <p className="hero-subtitle">GRED is a city-based service marketplace platform that connects customers with trusted local service providers.</p>
           <div className="hero-cta-group" aria-label="Primary actions">
-            <a className="btn-hero btn-secondary" id="btn-hero-partner" href="provider.html">Become a Partner</a>
+            <a className="btn-hero btn-secondary" id="btn-hero-partner" href="/provider">Become a Partner</a>
           </div>
           <div className="hero-app-badges" aria-label="Download the GRED app">
             <a href="javascript:void(0)" className="app-badge app-store" aria-label="Download on the App Store">

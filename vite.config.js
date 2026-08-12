@@ -9,15 +9,15 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        invest: resolve(__dirname, 'invest.html'),
-        provider: resolve(__dirname, 'provider.html'),
-        deleteData: resolve(__dirname, 'delete-data.html'),
-        privacyPolicy: resolve(__dirname, 'privacy-policy.html'),
-        termsOfService: resolve(__dirname, 'terms-of-service.html'),
-        thankyou: resolve(__dirname, 'thankyou.html'),
-        investSuccess: resolve(__dirname, 'invest-success.html'),
-        providerThankyou: resolve(__dirname, 'provider-thankyou.html'),
-        deleteDataSuccess: resolve(__dirname, 'delete-data-success.html')
+        invest: resolve(__dirname, 'invest/index.html'),
+        provider: resolve(__dirname, 'provider/index.html'),
+        deleteData: resolve(__dirname, 'delete-data/index.html'),
+        privacyPolicy: resolve(__dirname, 'privacy-policy/index.html'),
+        termsOfService: resolve(__dirname, 'terms-of-service/index.html'),
+        thankyou: resolve(__dirname, 'thankyou/index.html'),
+        investSuccess: resolve(__dirname, 'invest-success/index.html'),
+        providerThankyou: resolve(__dirname, 'provider-thankyou/index.html'),
+        deleteDataSuccess: resolve(__dirname, 'delete-data-success/index.html')
       }
     }
   }

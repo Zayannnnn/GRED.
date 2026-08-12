@@ -70,7 +70,7 @@ function Drawer({ isMenuOpen, setIsMenuOpen }) {
           <a href="/?scroll=trust-safety" onClick={(e) => handleNavLinkClick(e, 'trust-safety', closeDrawer)} data-scroll-target="trust-safety">Safety</a>
           <a href="/?scroll=testimonials" onClick={(e) => handleNavLinkClick(e, 'testimonials', closeDrawer)} data-scroll-target="testimonials">Reviews</a>
           <a href="/?scroll=faq" onClick={(e) => handleNavLinkClick(e, 'faq', closeDrawer)} data-scroll-target="faq">FAQ</a>
-          <a href="invest.html" className="nav-invest-btn">Invest In Us</a>
+          <a href="/invest" className="nav-invest-btn">Invest In Us</a>
         </nav>
       </div>
     </div>

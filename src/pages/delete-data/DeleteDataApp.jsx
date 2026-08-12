@@ -152,8 +152,7 @@ function DeleteDataApp() {
           <input type="hidden" name="access_key" value="88ebc932-5173-4c09-a4b0-f37e152723a0" />
           <input type="checkbox" name="botcheck" style={{display: "none"}} />
           <input type="hidden" name="_subject" value="New Data Deletion Request - GRED" />
-          <input type="hidden" name="redirect" value="delete-data-success.html" />
-
+          <input type="hidden" name="redirect" value="/delete-data-success" />
           {/* Form Fields */}
           <div className="form-group">
             <label className="form-label" htmlFor="full-name">Full Name *</label>
