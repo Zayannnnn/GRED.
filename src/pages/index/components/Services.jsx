@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 
 const servicesData = [
   {
@@ -47,14 +47,192 @@ function Services() {
   const containerRef = useRef(null);
   const wrapperRef = useRef(null);
   const gridRef = useRef(null);
-  const pausedRef = useRef(false);
+  const currentStepRef = useRef(0);
+  const lastScrollTimeRef = useRef(0);
+  const touchStartYRef = useRef(0);
 
-  // Render cards markup helper
-  const renderCard = (item, index, isClone = false) => (
+  // Helper to get target horizontal scroll offset for a step index
+  const getStepScrollLeft = useCallback((stepIndex) => {
+    const wrapper = wrapperRef.current;
+    const grid = gridRef.current;
+    if (!wrapper || !grid) return 0;
+
+    const cards = grid.children;
+    if (!cards || cards.length === 0) return 0;
+
+    const maxScroll = Math.max(0, wrapper.scrollWidth - wrapper.clientWidth);
+    if (maxScroll <= 5) return 0;
+
+    const targetCard = cards[Math.min(stepIndex, cards.length - 1)];
+    if (!targetCard) return 0;
+
+    const cardOffset = targetCard.offsetLeft - grid.offsetLeft;
+    return Math.min(cardOffset, maxScroll);
+  }, []);
+
+  const getMaxSteps = useCallback(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return 0;
+    const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+    if (maxScroll <= 10) return 0;
+    return servicesData.length - 1;
+  }, []);
+
+  const scrollToStep = useCallback((stepIndex) => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+    const targetLeft = getStepScrollLeft(stepIndex);
+    wrapper.scrollTo({
+      left: targetLeft,
+      behavior: 'smooth'
+    });
+  }, [getStepScrollLeft]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const wrapper = wrapperRef.current;
+    if (!container || !wrapper) return;
+
+    let isNearViewport = false;
+    const COOLDOWN_MS = 450; // Smooth gesture debounce
+
+    // IntersectionObserver to attach wheel/touch interceptors only when in viewport
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isNearViewport = entry.isIntersecting;
+      });
+    }, { threshold: 0.15 });
+
+    observer.observe(container);
+
+    const isEngagedInViewport = () => {
+      if (!isNearViewport) return false;
+      const rect = container.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      // Section is engaged when it occupies the active viewport center
+      return rect.top <= viewportHeight * 0.45 && rect.bottom >= viewportHeight * 0.55;
+    };
+
+    // Wheel listener (non-passive to control scroll progression)
+    const handleWheel = (e) => {
+      if (!isEngagedInViewport()) return;
+
+      const maxSteps = getMaxSteps();
+      if (maxSteps === 0) return; // All cards visible on wide screens, allow natural vertical scroll
+
+      const now = Date.now();
+      const isCoolingDown = now - lastScrollTimeRef.current < COOLDOWN_MS;
+
+      if (e.deltaY > 15) {
+        // Scrolling DOWN
+        if (currentStepRef.current < maxSteps) {
+          e.preventDefault();
+          if (!isCoolingDown) {
+            currentStepRef.current += 1;
+            scrollToStep(currentStepRef.current);
+            lastScrollTimeRef.current = now;
+          }
+        }
+        // If currentStepRef.current >= maxSteps, do NOT preventDefault -> moves down naturally
+      } else if (e.deltaY < -15) {
+        // Scrolling UP
+        if (currentStepRef.current > 0) {
+          e.preventDefault();
+          if (!isCoolingDown) {
+            currentStepRef.current -= 1;
+            scrollToStep(currentStepRef.current);
+            lastScrollTimeRef.current = now;
+          }
+        }
+        // If currentStepRef.current <= 0, do NOT preventDefault -> moves up naturally
+      }
+    };
+
+    // Touch handlers for mobile
+    const handleTouchStart = (e) => {
+      if (e.touches && e.touches.length > 0) {
+        touchStartYRef.current = e.touches[0].clientY;
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (!isEngagedInViewport() || !e.touches || e.touches.length === 0) return;
+
+      const maxSteps = getMaxSteps();
+      if (maxSteps === 0) return;
+
+      const currentY = e.touches[0].clientY;
+      const deltaY = touchStartYRef.current - currentY;
+      const now = Date.now();
+      const isCoolingDown = now - lastScrollTimeRef.current < COOLDOWN_MS;
+
+      // Swiping UP (scrolling down page)
+      if (deltaY > 40) {
+        if (currentStepRef.current < maxSteps) {
+          if (!isCoolingDown) {
+            currentStepRef.current += 1;
+            scrollToStep(currentStepRef.current);
+            lastScrollTimeRef.current = now;
+            touchStartYRef.current = currentY;
+          }
+        }
+      } 
+      // Swiping DOWN (scrolling up page)
+      else if (deltaY < -40) {
+        if (currentStepRef.current > 0) {
+          if (!isCoolingDown) {
+            currentStepRef.current -= 1;
+            scrollToStep(currentStepRef.current);
+            lastScrollTimeRef.current = now;
+            touchStartYRef.current = currentY;
+          }
+        }
+      }
+    };
+
+    // Sync current step if user drags/swipes horizontally
+    const handleScroll = () => {
+      const scrollLeft = wrapper.scrollLeft;
+      const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+      if (maxScroll <= 0) return;
+
+      const cards = gridRef.current ? gridRef.current.children : null;
+      if (!cards || cards.length === 0) return;
+
+      // Find closest card to current scrollLeft
+      let closestIdx = 0;
+      let minDiff = Infinity;
+      for (let i = 0; i < cards.length; i++) {
+        const offset = cards[i].offsetLeft - (gridRef.current?.offsetLeft || 0);
+        const diff = Math.abs(offset - scrollLeft);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIdx = i;
+        }
+      }
+      currentStepRef.current = closestIdx;
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    wrapper.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      wrapper.removeEventListener('scroll', handleScroll);
+    };
+  }, [getMaxSteps, scrollToStep]);
+
+  // Render card markup
+  const renderCard = (item, index) => (
     <div 
-      key={`${item.id}-${isClone ? 'clone' : 'orig'}-${index}`} 
+      key={item.id} 
       className="service-card glass-panel" 
-      id={`${item.id}${isClone ? '-clone' : ''}`}
+      id={item.id}
     >
       <span className={`service-status-badge ${item.status}`} aria-label={item.statusText}>
         {item.statusText}
@@ -79,79 +257,6 @@ function Services() {
     </div>
   );
 
-  useEffect(() => {
-    const container = containerRef.current;
-    const wrapper = wrapperRef.current;
-    const grid = gridRef.current;
-    if (!wrapper || !grid || !container) return;
-
-    let animationFrameId = null;
-    let scrollPos = wrapper.scrollLeft || 0;
-    let isVisible = false;
-    const speed = 0.45; // scroll speed per frame
-
-    // Main scroll frame update loop (only active when in viewport and not paused)
-    const scroll = () => {
-      if (!isVisible || pausedRef.current) {
-        animationFrameId = null;
-        return;
-      }
-
-      // Max scroll represents half the scrollWidth since cards are doubled
-      const maxScroll = grid.scrollWidth / 2;
-      
-      scrollPos += speed;
-      if (scrollPos >= maxScroll) {
-        scrollPos = 0;
-      }
-      wrapper.scrollLeft = scrollPos;
-
-      animationFrameId = requestAnimationFrame(scroll);
-    };
-
-    const resumeScroll = () => {
-      pausedRef.current = false;
-      if (isVisible && !animationFrameId) {
-        animationFrameId = requestAnimationFrame(scroll);
-      }
-    };
-
-    // Pause on interactions
-    const handleMouseEnter = () => { pausedRef.current = true; };
-    const handleMouseLeave = () => { resumeScroll(); };
-    const handleTouchStart = () => { pausedRef.current = true; };
-    const handleTouchEnd = () => { resumeScroll(); };
-
-    wrapper.addEventListener('mouseenter', handleMouseEnter, { passive: true });
-    wrapper.addEventListener('mouseleave', handleMouseLeave, { passive: true });
-    wrapper.addEventListener('touchstart', handleTouchStart, { passive: true });
-    wrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
-
-    // Viewport IntersectionObserver to start/stop the RAF loop
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        isVisible = entry.isIntersecting;
-        if (isVisible && !pausedRef.current && !animationFrameId) {
-          animationFrameId = requestAnimationFrame(scroll);
-        } else if (!isVisible && animationFrameId) {
-          cancelAnimationFrame(animationFrameId);
-          animationFrameId = null;
-        }
-      });
-    }, { threshold: 0.05 });
-
-    observer.observe(container);
-
-    return () => {
-      observer.disconnect();
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
-      wrapper.removeEventListener('mouseenter', handleMouseEnter);
-      wrapper.removeEventListener('mouseleave', handleMouseLeave);
-      wrapper.removeEventListener('touchstart', handleTouchStart);
-      wrapper.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, []);
-
   return (
     <section id="services" className="section-padding scroll-reveal" ref={containerRef}>
       <h2 className="section-title">Our Premium Services</h2>
@@ -169,10 +274,7 @@ function Services() {
 
         <div className="services-carousel-wrapper" ref={wrapperRef}>
           <div className="services-grid" ref={gridRef}>
-            {/* Render original set of cards */}
-            {servicesData.map((item, idx) => renderCard(item, idx, false))}
-            {/* Render cloned set of cards to facilitate infinite scrolling seamless wrap-around */}
-            {servicesData.map((item, idx) => renderCard(item, idx, true))}
+            {servicesData.map((item, idx) => renderCard(item, idx))}
           </div>
         </div>
       </div>

@@ -1,19 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 
 function Workflow() {
   const sectionRef = useRef(null);
   const canvasRef = useRef(null);
   
-  // States for active class names on the workflow cards to run sequencer
-  const [activeStates, setActiveStates] = useState([false, false, false, false]);
-  const [lineActiveStates, setLineActiveStates] = useState([false, false, false, false]);
-  const [completedStates, setCompletedStates] = useState([false, false, false, false]);
+  // Current active step: 0 = Step 1, 1 = Step 2, 2 = Step 3, 3 = Step 4
+  const [currentStep, setCurrentStep] = useState(0);
+  const currentStepRef = useRef(0);
+  const lastScrollTimeRef = useRef(0);
+  const touchStartYRef = useRef(0);
 
-  // States for scroll reveal (reveal-active) to prevent React virtual DOM wipes
+  // Scroll reveal state to prevent React virtual DOM class wipes
   const [sectionRevealed, setSectionRevealed] = useState(false);
   const [cardsRevealed, setCardsRevealed] = useState([false, false, false, false]);
 
-  // Manage scroll-reveal intersection observer declaratively inside React (prevents re-render class wipes)
+  // Manage scroll-reveal intersection observer declaratively inside React
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -52,218 +53,147 @@ function Workflow() {
     };
   }, []);
 
-  // Workflow step sequencer logic (matches script.js 388-468)
+  // Scroll-controlled Step Progression (No continuous timers or automatic looping)
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
-    let activeIndex = 0;
-    let intervalId = null;
-    let completedTimeout = null;
-    const STEP_DURATION = 1100; // 1.1 seconds per step
-
-    function activateStep(index) {
-      setActiveStates(prev => prev.map((_, idx) => idx === index));
-      
-      setLineActiveStates(prev => prev.map((_, idx) => idx < index));
-      setCompletedStates(prev => prev.map((_, idx) => idx < index));
-    }
-
-    function startLoop() {
-      stopLoop(); // Clear any existing
-      activeIndex = 0;
-      activateStep(activeIndex);
-
-      intervalId = setInterval(() => {
-        activeIndex = (activeIndex + 1) % 5; // 4 cards + 1 final completion state
-
-        if (activeIndex === 4) {
-          // Final completion state: all cards completed, final connector active
-          setActiveStates([false, false, false, false]);
-          setLineActiveStates([true, true, true, true]);
-          setCompletedStates([true, true, true, true]);
-
-          // Pause in completed state, then restart
-          completedTimeout = setTimeout(() => {
-            if (intervalId) {
-              activeIndex = 0;
-              activateStep(activeIndex);
-            }
-          }, 1100);
-        } else {
-          activateStep(activeIndex);
-        }
-      }, STEP_DURATION);
-    }
-
-    function stopLoop() {
-      if (intervalId) {
-        clearInterval(intervalId);
-        intervalId = null;
-      }
-      if (completedTimeout) {
-        clearTimeout(completedTimeout);
-        completedTimeout = null;
-      }
-      // Reset states
-      setActiveStates([false, false, false, false]);
-      setLineActiveStates([false, false, false, false]);
-      setCompletedStates([false, false, false, false]);
-    }
+    let isNearViewport = false;
+    const COOLDOWN_MS = 450; // Tactile gesture debounce
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          startLoop();
-        } else {
-          stopLoop();
-        }
+        isNearViewport = entry.isIntersecting;
       });
     }, { threshold: 0.15 });
 
     observer.observe(section);
 
+    const isEngagedInViewport = () => {
+      if (!isNearViewport) return false;
+      const rect = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      // Section is engaged when occupying the active viewport center
+      return rect.top <= viewportHeight * 0.45 && rect.bottom >= viewportHeight * 0.55;
+    };
+
+    const handleWheel = (e) => {
+      if (!isEngagedInViewport()) return;
+
+      const now = Date.now();
+      const isCoolingDown = now - lastScrollTimeRef.current < COOLDOWN_MS;
+
+      if (e.deltaY > 15) {
+        // User scrolls DOWN
+        if (currentStepRef.current < 3) {
+          e.preventDefault();
+          if (!isCoolingDown) {
+            currentStepRef.current += 1;
+            setCurrentStep(currentStepRef.current);
+            lastScrollTimeRef.current = now;
+          }
+        }
+        // If currentStep >= 3, do NOT preventDefault -> allows smooth natural scroll down to next section
+      } else if (e.deltaY < -15) {
+        // User scrolls UP
+        if (currentStepRef.current > 0) {
+          e.preventDefault();
+          if (!isCoolingDown) {
+            currentStepRef.current -= 1;
+            setCurrentStep(currentStepRef.current);
+            lastScrollTimeRef.current = now;
+          }
+        }
+        // If currentStep <= 0, do NOT preventDefault -> allows smooth natural scroll up to previous section
+      }
+    };
+
+    const handleTouchStart = (e) => {
+      if (e.touches && e.touches.length > 0) {
+        touchStartYRef.current = e.touches[0].clientY;
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (!isEngagedInViewport() || !e.touches || e.touches.length === 0) return;
+
+      const currentY = e.touches[0].clientY;
+      const deltaY = touchStartYRef.current - currentY;
+      const now = Date.now();
+      const isCoolingDown = now - lastScrollTimeRef.current < COOLDOWN_MS;
+
+      // Swiping UP (scrolling DOWN page)
+      if (deltaY > 40) {
+        if (currentStepRef.current < 3) {
+          if (!isCoolingDown) {
+            currentStepRef.current += 1;
+            setCurrentStep(currentStepRef.current);
+            lastScrollTimeRef.current = now;
+            touchStartYRef.current = currentY;
+          }
+        }
+      } 
+      // Swiping DOWN (scrolling UP page)
+      else if (deltaY < -40) {
+        if (currentStepRef.current > 0) {
+          if (!isCoolingDown) {
+            currentStepRef.current -= 1;
+            setCurrentStep(currentStepRef.current);
+            lastScrollTimeRef.current = now;
+            touchStartYRef.current = currentY;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+
     return () => {
       observer.disconnect();
-      stopLoop();
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
     };
   }, []);
 
-  // HTML5 Canvas Particle System logic (matches script.js 249-385)
+  // HTML5 Canvas Static Particle field (renders crisp static dots on resize without continuous 60fps RAF loop)
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let particles = [];
-    let activeParticleCount = window.innerWidth <= 768 ? 20 : 75;
-    let animationId = null;
-    let isIntersecting = false;
-
-    function resizeCanvas() {
+    function renderStaticParticles() {
       const parent = canvas.parentElement;
-      if (parent) {
-        const prevWidth = canvas.width;
-        canvas.width = parent.offsetWidth;
-        canvas.height = parent.offsetHeight;
-        
-        const newCount = window.innerWidth <= 768 ? 20 : 75;
-        if (newCount !== activeParticleCount || prevWidth === 0) {
-          initParticles();
-        }
-      }
-    }
+      if (!parent) return;
 
-    function initParticles() {
-      particles = [];
-      const count = window.innerWidth <= 768 ? 20 : 75;
-      activeParticleCount = count;
-      for (let i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.15,
-          vy: (Math.random() - 0.5) * 0.15,
-          radius: Math.random() * 2.2 + 0.6,
-          baseOpacity: Math.random() * 0.45 + 0.15,
-          opacity: 0,
-          pulsePhase: Math.random() * Math.PI * 2,
-          pulseSpeed: Math.random() * 0.015 + 0.005,
-          isBlurred: Math.random() < 0.25
-        });
-      }
-    }
-
-    function animate() {
-      if (!isIntersecting) return;
+      canvas.width = parent.offsetWidth;
+      canvas.height = parent.offsetHeight;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const isMobile = window.innerWidth <= 768;
+      const count = isMobile ? 18 : 60;
 
-      if (!isMobile) {
-        ctx.lineWidth = 0.55;
-        for (let i = 0; i < particles.length; i++) {
-          const p1 = particles[i];
-          for (let j = i + 1; j < particles.length; j++) {
-            const p2 = particles[j];
-            const dx = p1.x - p2.x;
-            const dy = p1.y - p2.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < 100) {
-              const alpha = (1 - dist / 100) * 0.085 * Math.min(p1.opacity, p2.opacity);
-              if (alpha > 0) {
-                ctx.strokeStyle = `rgba(249, 115, 22, ${alpha})`;
-                ctx.beginPath();
-                ctx.moveTo(p1.x, p1.y);
-                ctx.lineTo(p2.x, p2.y);
-                ctx.stroke();
-              }
-            }
-          }
-        }
-      }
-
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
-
-        p.pulsePhase += p.pulseSpeed;
-        p.opacity = p.baseOpacity + Math.sin(p.pulsePhase) * 0.12;
-        if (p.opacity < 0.05) p.opacity = 0.05;
-        if (p.opacity > 0.7) p.opacity = 0.7;
+      for (let i = 0; i < count; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const radius = Math.random() * 2.0 + 0.6;
+        const opacity = Math.random() * 0.35 + 0.12;
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-
-        if (!isMobile && p.isBlurred) {
-          ctx.shadowBlur = 8;
-          ctx.shadowColor = "#f97316";
-        } else {
-          ctx.shadowBlur = 0;
-        }
-
-        ctx.fillStyle = `rgba(249, 115, 22, ${p.opacity})`;
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(249, 115, 22, ${opacity})`;
         ctx.fill();
       }
-
-      ctx.shadowBlur = 0;
-      animationId = requestAnimationFrame(animate);
     }
 
-    const section = sectionRef.current;
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          isIntersecting = true;
-          resizeCanvas();
-          if (!animationId) {
-            animate();
-          }
-        } else {
-          isIntersecting = false;
-          if (animationId) {
-            cancelAnimationFrame(animationId);
-            animationId = null;
-          }
-        }
-      });
-    }, { threshold: 0.05 });
-
-    observer.observe(section);
-    window.addEventListener("resize", resizeCanvas);
+    renderStaticParticles();
+    window.addEventListener("resize", renderStaticParticles);
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", resizeCanvas);
-      if (animationId) cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", renderStaticParticles);
     };
   }, []);
 
@@ -289,7 +219,10 @@ function Workflow() {
 
       <div className="workflow-grid">
         {/* Step 1 */}
-        <div className={`workflow-card scroll-reveal ${cardsRevealed[0] ? 'reveal-active' : ''} ${activeStates[0] ? 'active' : ''} ${lineActiveStates[0] ? 'line-active' : ''} ${completedStates[0] ? 'completed' : ''}`} id="workflow-step-1">
+        <div 
+          className={`workflow-card scroll-reveal ${cardsRevealed[0] ? 'reveal-active' : ''} ${currentStep === 0 ? 'active' : ''} ${currentStep > 0 ? 'line-active completed' : ''}`} 
+          id="workflow-step-1"
+        >
           <span className="workflow-badge">Step 1</span>
           <div className="workflow-image-wrapper">
             <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412168/file_0000000062fc723082a1d9267f2d431e_tzovdm.png" alt="Choose Service" className="workflow-img" loading="lazy" />
@@ -299,7 +232,10 @@ function Workflow() {
         </div>
 
         {/* Step 2 */}
-        <div className={`workflow-card scroll-reveal ${cardsRevealed[1] ? 'reveal-active' : ''} ${activeStates[1] ? 'active' : ''} ${lineActiveStates[1] ? 'line-active' : ''} ${completedStates[1] ? 'completed' : ''}`} id="workflow-step-2">
+        <div 
+          className={`workflow-card scroll-reveal ${cardsRevealed[1] ? 'reveal-active' : ''} ${currentStep === 1 ? 'active' : ''} ${currentStep > 1 ? 'line-active completed' : ''}`} 
+          id="workflow-step-2"
+        >
           <span className="workflow-badge">Step 2</span>
           <div className="workflow-image-wrapper">
             <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412159/file_00000000126871fbba8352056f10fab5_xsjufi.png" alt="Book Instantly" className="workflow-img" loading="lazy" />
@@ -309,7 +245,10 @@ function Workflow() {
         </div>
 
         {/* Step 3 */}
-        <div className={`workflow-card scroll-reveal ${cardsRevealed[2] ? 'reveal-active' : ''} ${activeStates[2] ? 'active' : ''} ${lineActiveStates[2] ? 'line-active' : ''} ${completedStates[2] ? 'completed' : ''}`} id="workflow-step-3">
+        <div 
+          className={`workflow-card scroll-reveal ${cardsRevealed[2] ? 'reveal-active' : ''} ${currentStep === 2 ? 'active' : ''} ${currentStep > 2 ? 'line-active completed' : ''}`} 
+          id="workflow-step-3"
+        >
           <span className="workflow-badge">Step 3</span>
           <div className="workflow-image-wrapper">
             <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412193/file_00000000e8947209a0fec3e90e0f92d1_mmanta.png" alt="Provider Accepts" className="workflow-img" loading="lazy" />
@@ -319,7 +258,10 @@ function Workflow() {
         </div>
 
         {/* Step 4 */}
-        <div className={`workflow-card scroll-reveal ${cardsRevealed[3] ? 'reveal-active' : ''} ${activeStates[3] ? 'active' : ''} ${lineActiveStates[3] ? 'line-active' : ''} ${completedStates[3] ? 'completed' : ''}`} id="workflow-step-4">
+        <div 
+          className={`workflow-card scroll-reveal ${cardsRevealed[3] ? 'reveal-active' : ''} ${currentStep === 3 ? 'active' : ''}`} 
+          id="workflow-step-4"
+        >
           <span className="workflow-badge">Step 4</span>
           <div className="workflow-image-wrapper">
             <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412183/file_00000000f310720a8d6073c0d2ce0d6a_yqup8m.png" alt="Work Completed" className="workflow-img" loading="lazy" />
@@ -332,4 +274,4 @@ function Workflow() {
   );
 }
 
-export default Workflow;
+export default React.memo(Workflow);
