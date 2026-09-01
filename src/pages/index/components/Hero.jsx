@@ -195,13 +195,6 @@ function Hero() {
                       <stop offset="0%" stopColor="#ffffff" />
                       <stop offset="100%" stopColor="#f8fafc" />
                     </linearGradient>
-                    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
-                      <feGaussianBlur stdDeviation="10" result="blur" />
-                      <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
                   </defs>
 
                   <g className="city-grid">

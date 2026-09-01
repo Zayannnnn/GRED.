@@ -6,7 +6,7 @@ const servicesData = [
     btnId: "btn-service-house-help",
     status: "available",
     statusText: "Available Now",
-    icon: "https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363872/file_000000004ca07208b97fa5da8c067d03_fzrobj.png",
+    icon: "https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_160,c_scale/v1779363872/file_000000004ca07208b97fa5da8c067d03_fzrobj.png",
     title: "House Help",
     desc: "Professional on-demand household support, custom housekeeping, and daily assistance.",
     comingSoon: false
@@ -16,7 +16,7 @@ const servicesData = [
     btnId: "btn-service-car-service",
     status: "coming-soon",
     statusText: "Coming Soon",
-    icon: "https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363890/file_00000000ae3072088b3e5f8eb2acc0e6_kmtkwe.png",
+    icon: "https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_160,c_scale/v1779363890/file_00000000ae3072088b3e5f8eb2acc0e6_kmtkwe.png",
     title: "Car Service",
     desc: "Premium on-demand car detailing, eco-wash, interior deep vacuuming, and inspection.",
     comingSoon: true
@@ -26,7 +26,7 @@ const servicesData = [
     btnId: "btn-service-plumbing",
     status: "coming-soon",
     statusText: "Coming Soon",
-    icon: "https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363808/file_0000000065347208befab56e456ffd75_jlc1m1.png",
+    icon: "https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_160,c_scale/v1779363808/file_0000000065347208befab56e456ffd75_jlc1m1.png",
     title: "Plumbing",
     desc: "Premium diagnostic checks, leak resolutions, piping installations, and fixture repair.",
     comingSoon: true
@@ -36,7 +36,7 @@ const servicesData = [
     btnId: "btn-service-electrical",
     status: "coming-soon",
     statusText: "Coming Soon",
-    icon: "https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363750/file_0000000068d8720884b41c36d2c4f2ad_fj7lff.png",
+    icon: "https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_160,c_scale/v1779363750/file_0000000068d8720884b41c36d2c4f2ad_fj7lff.png",
     title: "Electrical",
     desc: "Certified electricians for smart automation, system diagnostics, and elite wiring setups.",
     comingSoon: true

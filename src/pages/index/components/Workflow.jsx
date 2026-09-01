@@ -225,7 +225,7 @@ function Workflow() {
         >
           <span className="workflow-badge">Step 1</span>
           <div className="workflow-image-wrapper">
-            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412168/file_0000000062fc723082a1d9267f2d431e_tzovdm.png" alt="Choose Service" className="workflow-img" loading="lazy" />
+            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_600,c_scale/v1779412168/file_0000000062fc723082a1d9267f2d431e_tzovdm.png" alt="Choose Service" className="workflow-img" loading="lazy" decoding="async" width="280" height="224" />
           </div>
           <h3 className="workflow-card-title">Choose Service</h3>
           <p className="workflow-card-desc">Pick from our premium catalog of deep home cleaning, plumbing, or repairs.</p>
@@ -238,7 +238,7 @@ function Workflow() {
         >
           <span className="workflow-badge">Step 2</span>
           <div className="workflow-image-wrapper">
-            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412159/file_00000000126871fbba8352056f10fab5_xsjufi.png" alt="Book Instantly" className="workflow-img" loading="lazy" />
+            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_600,c_scale/v1779412159/file_00000000126871fbba8352056f10fab5_xsjufi.png" alt="Book Instantly" className="workflow-img" loading="lazy" decoding="async" width="280" height="224" />
           </div>
           <h3 className="workflow-card-title">Book Instantly</h3>
           <p className="workflow-card-desc">Input your location, choose a scheduling window, and receive upfront pricing.</p>
@@ -251,7 +251,7 @@ function Workflow() {
         >
           <span className="workflow-badge">Step 3</span>
           <div className="workflow-image-wrapper">
-            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412193/file_00000000e8947209a0fec3e90e0f92d1_mmanta.png" alt="Provider Accepts" className="workflow-img" loading="lazy" />
+            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_600,c_scale/v1779412193/file_00000000e8947209a0fec3e90e0f92d1_mmanta.png" alt="Provider Accepts" className="workflow-img" loading="lazy" decoding="async" width="280" height="224" />
           </div>
           <h3 className="workflow-card-title">Provider Accepts</h3>
           <p className="workflow-card-desc">An elite neighborhood crew confirms, sharing dynamic GPS coordinates.</p>
@@ -264,7 +264,7 @@ function Workflow() {
         >
           <span className="workflow-badge">Step 4</span>
           <div className="workflow-image-wrapper">
-            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779412183/file_00000000f310720a8d6073c0d2ce0d6a_yqup8m.png" alt="Work Completed" className="workflow-img" loading="lazy" />
+            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_600,c_scale/v1779412183/file_00000000f310720a8d6073c0d2ce0d6a_yqup8m.png" alt="Work Completed" className="workflow-img" loading="lazy" decoding="async" width="280" height="224" />
           </div>
           <h3 className="workflow-card-title">Work Completed</h3>
           <p className="workflow-card-desc">Your task is completed with active warranty support. Release payment securely.</p>

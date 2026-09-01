@@ -23,7 +23,7 @@ function Contact() {
 
         {/* Consolidated Pre-rendered Illustration Image */}
         <div className="showcase-image-container">
-          <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779447195/file_00000000fe6071f7bef2d7571a211aa5_ncffqi.png" alt="GRED Marketplace Showcase" className="showcase-main-img" loading="lazy" decoding="async" width="800" height="600" />
+          <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_600,c_scale/v1779447195/file_00000000fe6071f7bef2d7571a211aa5_ncffqi.png" alt="GRED Marketplace Showcase" className="showcase-main-img" loading="lazy" decoding="async" width="600" height="400" />
         </div>
 
         {/* App Store + Play Store Badge Buttons (Centered directly below the illustration on all viewports) */}

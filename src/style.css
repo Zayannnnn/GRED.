@@ -105,7 +105,6 @@ body {
   background: radial-gradient(circle, rgba(255, 178, 0, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
   top: -20%;
   left: -20%;
-  animation: driftSlow 25s infinite alternate ease-in-out;
 }
 
 .blob-2 {
@@ -114,16 +113,6 @@ body {
   background: radial-gradient(circle, rgba(255, 230, 200, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
   bottom: -20%;
   right: -20%;
-  animation: driftSlow 30s infinite alternate-reverse ease-in-out;
-}
-
-@keyframes driftSlow {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  100% {
-    transform: translate(8vw, -4vh) scale(1.08);
-  }
 }
 
 .particles {
@@ -626,7 +615,6 @@ body.nav-open {
   right: 18%;
   top: 12%;
   background: rgba(255, 184, 0, 0.2);
-  animation: ambientDrift 12s ease-in-out infinite alternate;
 }
 
 .hero-ambient-two {
@@ -635,12 +623,6 @@ body.nav-open {
   right: 5%;
   bottom: 12%;
   background: rgba(99, 102, 241, 0.12);
-  animation: ambientDrift 15s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes ambientDrift {
-  from { transform: translate3d(0, 0, 0) scale(0.95); }
-  to { transform: translate3d(-26px, 22px, 0) scale(1.08); }
 }
 
 .hero-split-container {
@@ -1011,7 +993,6 @@ body.nav-open {
   height: 250px;
   left: -50px;
   top: -50px;
-  animation: glowFloatOne 9s ease-in-out infinite alternate;
 }
 
 .hero-glow-blob.glow-2 {
@@ -1019,17 +1000,6 @@ body.nav-open {
   height: 320px;
   right: -80px;
   bottom: -60px;
-  animation: glowFloatTwo 11s ease-in-out infinite alternate;
-}
-
-@keyframes glowFloatOne {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  100% { transform: translate3d(20px, 30px, 0) scale(1.15); }
-}
-
-@keyframes glowFloatTwo {
-  0% { transform: translate3d(0, 0, 0) scale(1.1); }
-  100% { transform: translate3d(-30px, -20px, 0) scale(0.9); }
 }
 
 .hero-canvas {
@@ -1097,7 +1067,7 @@ body.nav-open {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 12 12;
-  filter: url(#softGlow);
+  filter: drop-shadow(0 0 6px rgba(255, 178, 0, 0.6));
   animation: routeMotion 1.8s linear infinite;
 }
 
@@ -1732,12 +1702,6 @@ body.nav-open {
   background: radial-gradient(circle at 30% 30%, rgba(255, 178, 0, 0.08) 0%, transparent 50%);
   pointer-events: none;
   z-index: -1;
-  animation: moveAmbientGlow 20s infinite linear;
-}
-
-@keyframes moveAmbientGlow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
 
 .card-glow-blob {
@@ -1747,7 +1711,6 @@ body.nav-open {
   opacity: 0.18;
   pointer-events: none;
   z-index: -1;
-  animation: pulseCardGlow 10s infinite alternate ease-in-out;
 }
 
 .card-glow-blob.blob-1 {
@@ -1756,7 +1719,6 @@ body.nav-open {
   background: radial-gradient(circle, rgba(255, 178, 0, 0.4) 0%, transparent 70%);
   top: -20px;
   right: -20px;
-  animation-delay: 0s;
 }
 
 .card-glow-blob.blob-2 {
@@ -1765,13 +1727,6 @@ body.nav-open {
   background: radial-gradient(circle, rgba(255, 130, 0, 0.2) 0%, transparent 70%);
   bottom: -40px;
   left: -40px;
-  animation-delay: -5s;
-}
-
-@keyframes pulseCardGlow {
-  0% { transform: scale(1) translate(0, 0); opacity: 0.12; }
-  50% { transform: scale(1.15) translate(15px, -15px); opacity: 0.22; }
-  100% { transform: scale(0.9) translate(-10px, 10px); opacity: 0.10; }
 }
 
 /* Soft Reflection Sweep */
@@ -2056,7 +2011,6 @@ body.nav-open {
   opacity: 0.28;
   pointer-events: none;
   z-index: 1;
-  animation: moveServicesGlow 22s infinite alternate ease-in-out;
 }
 
 .services-bg-glow-blob.blob-orange {
@@ -2073,13 +2027,6 @@ body.nav-open {
   background: radial-gradient(circle, rgba(220, 38, 38, 0.18) 0%, transparent 70%);
   bottom: -80px;
   right: 15%;
-  animation-delay: -6s;
-}
-
-@keyframes moveServicesGlow {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(60px, -40px) scale(1.15); }
-  100% { transform: translate(-30px, 30px) scale(0.95); }
 }
 
 /* Tech Dotted Grid Overlay */
@@ -2419,7 +2366,6 @@ body.nav-open {
   width: 400px;
   height: 400px;
   background: radial-gradient(circle, rgba(249, 115, 22, 0.06) 0%, rgba(249, 115, 22, 0) 70%);
-  animation: pulseBlob1 15s infinite alternate ease-in-out;
 }
 
 .glow-blob-2 {
@@ -2428,17 +2374,6 @@ body.nav-open {
   width: 500px;
   height: 500px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
-  animation: pulseBlob2 20s infinite alternate ease-in-out;
-}
-
-@keyframes pulseBlob1 {
-  0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.08; }
-  100% { transform: translate3d(60px, 40px, 0) scale(1.15); opacity: 0.16; }
-}
-
-@keyframes pulseBlob2 {
-  0% { transform: translate3d(0, 0, 0) scale(1.1); opacity: 0.1; }
-  100% { transform: translate3d(-50px, -30px, 0) scale(0.9); opacity: 0.18; }
 }
 
 /* Floating Cyber Geometric Outlines */
@@ -4966,24 +4901,49 @@ body.nav-open {
     line-height: 1.58 !important;
   }
 
-  /* Low-RAM / Mobile GPU Optimization: Lighten blur shaders to preserve 60fps scrolling */
+  /* Low-RAM / Mobile GPU Optimization: Disable backdrop-filter on mobile and replace with clean high-performance solid glass tint */
   .glass-panel,
   .faq-item,
   .service-card,
   .testimonial-card,
   .feature-card,
-  .about-mini-card {
-    backdrop-filter: blur(6px) !important;
-    -webkit-backdrop-filter: blur(6px) !important;
+  .about-mini-card,
+  .hero-card,
+  .trust-card,
+  .stat-item,
+  .app-feature-btn {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+  }
+
+  .workflow-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(20, 20, 28, 0.94) !important;
+  }
+
+  .site-header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.96) !important;
   }
   
-  /* Optimize offscreen keyframe particle draw calls on mobile */
-  .card-particles,
+  /* Disable non-essential decorative animations on mobile to eliminate GPU compositor and layer overhead */
+  .particles,
+  .showcase-dots-container,
+  .trust-dots-container,
+  .stats-dots-container,
+  .showcase-grid-dots,
+  .cyber-ring,
+  .cyber-cross,
+  .cyber-circle,
+  .services-floating-spark,
+  .showcase-bg-effects,
   .services-dots-grid,
-  .testimonial-particle,
-  .faq-particle,
-  .stats-dots-container {
-    contain: strict;
+  .dots-background,
+  .card-ambient-glow {
+    display: none !important;
   }
 }
 

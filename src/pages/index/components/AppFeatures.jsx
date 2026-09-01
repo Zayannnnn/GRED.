@@ -106,31 +106,31 @@ function AppFeatures() {
             <span style={{position: "absolute", left: "10px", top: "9px", fontSize: "0.8rem"}}>🔍</span>
           </div>
           <div style={{borderRadius: "12px", overflow: "hidden", marginBottom: "20px", boxShadow: "0 4px 12px rgba(0,0,0,0.03)", width: "100%", aspectRatio: "16 / 9"}}>
-            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1777323674/20260428_022743_uurqty.png" style={{width: "100%", height: "100%", objectFit: "cover"}} alt="Mockup Banner" loading="lazy" decoding="async" width="300" height="169" />
+            <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_600,c_scale/v1777323674/20260428_022743_uurqty.png" style={{width: "100%", height: "100%", objectFit: "cover"}} alt="Mockup Banner" loading="lazy" decoding="async" width="300" height="169" />
           </div>
           <h5 style={{fontSize: "0.85rem", marginBottom: "10px", color: "#000000", fontWeight: "700"}}>Select Category</h5>
           <div style={{display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "20px"}}>
             <div style={{background: "#ffffff", border: "2px solid #FFB200", borderRadius: "12px", padding: "10px 8px", textAlign: "center", fontSize: "0.75rem", fontWeight: "700", color: "#000000", display: "flex", flexDirection: "column", alignItems: "center", boxShadow: "0 4px 10px rgba(255,178,0,0.06)"}}>
               <div style={{width: "52px", height: "52px", borderRadius: "50%", background: "rgba(255,178,0,0.05)", border: "1px solid #FFB200", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", marginBottom: "6px"}}>
-                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363872/file_000000004ca07208b97fa5da8c067d03_fzrobj.png" style={{width: "80%", height: "80%", objectFit: "contain"}} alt="House Help" loading="lazy" decoding="async" width="42" height="42" />
+                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_160,c_scale/v1779363872/file_000000004ca07208b97fa5da8c067d03_fzrobj.png" style={{width: "80%", height: "80%", objectFit: "contain"}} alt="House Help" loading="lazy" decoding="async" width="42" height="42" />
               </div>
               House Help
             </div>
             <div style={{background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "10px 8px", textAlign: "center", fontSize: "0.75rem", fontWeight: "600", color: "#4b5563", display: "flex", flexDirection: "column", alignItems: "center", boxShadow: "0 2px 6px rgba(0,0,0,0.015)"}}>
               <div style={{width: "52px", height: "52px", borderRadius: "50%", background: "#f8fafc", border: "1px solid rgba(0,0,0,0.06)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", marginBottom: "6px"}}>
-                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363890/file_00000000ae3072088b3e5f8eb2acc0e6_kmtkwe.png" style={{width: "80%", height: "80%", objectFit: "contain"}} alt="Car Service" loading="lazy" decoding="async" width="42" height="42" />
+                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_160,c_scale/v1779363890/file_00000000ae3072088b3e5f8eb2acc0e6_kmtkwe.png" style={{width: "80%", height: "80%", objectFit: "contain"}} alt="Car Service" loading="lazy" decoding="async" width="42" height="42" />
               </div>
               Car Service
             </div>
             <div style={{background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "10px 8px", textAlign: "center", fontSize: "0.75rem", fontWeight: "600", color: "#4b5563", display: "flex", flexDirection: "column", alignItems: "center", boxShadow: "0 2px 6px rgba(0,0,0,0.015)"}}>
               <div style={{width: "52px", height: "52px", borderRadius: "50%", background: "#f8fafc", border: "1px solid rgba(0,0,0,0.06)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", marginBottom: "6px"}}>
-                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363808/file_0000000065347208befab56e456ffd75_jlc1m1.png" style={{width: "80%", height: "80%", objectFit: "contain"}} alt="Plumbing" loading="lazy" decoding="async" width="42" height="42" />
+                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_160,c_scale/v1779363808/file_0000000065347208befab56e456ffd75_jlc1m1.png" style={{width: "80%", height: "80%", objectFit: "contain"}} alt="Plumbing" loading="lazy" decoding="async" width="42" height="42" />
               </div>
               Plumbing
             </div>
             <div style={{background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "10px 8px", textAlign: "center", fontSize: "0.75rem", fontWeight: "600", color: "#4b5563", display: "flex", flexDirection: "column", alignItems: "center", boxShadow: "0 2px 6px rgba(0,0,0,0.015)"}}>
               <div style={{width: "52px", height: "52px", borderRadius: "50%", background: "#f8fafc", border: "1px solid rgba(0,0,0,0.06)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", marginBottom: "6px"}}>
-                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363750/file_0000000068d8720884b41c36d2c4f2ad_fj7lff.png" style={{width: "80%", height: "80%", objectFit: "contain"}} alt="Electrical" loading="lazy" decoding="async" width="42" height="42" />
+                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_160,c_scale/v1779363750/file_0000000068d8720884b41c36d2c4f2ad_fj7lff.png" style={{width: "80%", height: "80%", objectFit: "contain"}} alt="Electrical" loading="lazy" decoding="async" width="42" height="42" />
               </div>
               Electrical
             </div>
@@ -177,7 +177,7 @@ function AppFeatures() {
           <div style={{display: "flex", flexDirection: "column", gap: "12px", height: "180px", overflowY: "auto", marginBottom: "12px"}}>
             <div style={{display: "flex", alignItems: "center", gap: "10px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "10px"}}>
               <div style={{width: "38px", height: "38px", borderRadius: "8px", background: "#ffffff", border: "1px solid #e2e8f0", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", flexShrink: 0}}>
-                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363872/file_000000004ca07208b97fa5da8c067d03_fzrobj.png" style={{width: "85%", height: "85%", objectFit: "contain"}} alt="Help Icon" />
+                <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_160,c_scale/v1779363872/file_000000004ca07208b97fa5da8c067d03_fzrobj.png" style={{width: "85%", height: "85%", objectFit: "contain"}} alt="Help Icon" />
               </div>
               <div style={{flexGrow: 1}}>
                 <span style={{fontSize: "0.75rem", fontWeight: 700, color: "#000000", display: "block"}}>Full House Cleaning</span>
@@ -260,7 +260,7 @@ function AppFeatures() {
             <div style={{background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "10px", display: "flex", flexDirection: "column", gap: "8px"}}>
               <div style={{display: "flex", alignItems: "center", gap: "8px", width: "100%"}}>
                 <div style={{width: "32px", height: "32px", borderRadius: "6px", background: "#f8fafc", border: "1px solid #e2e8f0", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", flexShrink: 0}}>
-                  <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363750/file_0000000068d8720884b41c36d2c4f2ad_fj7lff.png" style={{width: "85%", height: "85%", objectFit: "contain"}} alt="Electric" loading="lazy" decoding="async" width="32" height="32" />
+                  <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_160,c_scale/v1779363750/file_0000000068d8720884b41c36d2c4f2ad_fj7lff.png" style={{width: "85%", height: "85%", objectFit: "contain"}} alt="Electric" loading="lazy" decoding="async" width="32" height="32" />
                 </div>
                 <div style={{flexGrow: 1}}>
                   <span style={{fontSize: "0.75rem", fontWeight: 700, color: "#000000", display: "block"}}>Electrical Repair</span>
@@ -276,7 +276,7 @@ function AppFeatures() {
             <div style={{background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "10px", display: "flex", flexDirection: "column", gap: "8px"}}>
               <div style={{display: "flex", alignItems: "center", gap: "8px", width: "100%"}}>
                 <div style={{width: "32px", height: "32px", borderRadius: "6px", background: "#f8fafc", border: "1px solid #e2e8f0", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", flexShrink: 0}}>
-                  <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779363808/file_0000000065347208befab56e456ffd75_jlc1m1.png" style={{width: "85%", height: "85%", objectFit: "contain"}} alt="Plumb Icon" loading="lazy" decoding="async" width="32" height="32" />
+                  <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto,f_auto,w_160,c_scale/v1779363808/file_0000000065347208befab56e456ffd75_jlc1m1.png" style={{width: "85%", height: "85%", objectFit: "contain"}} alt="Plumb Icon" loading="lazy" decoding="async" width="32" height="32" />
                 </div>
                 <div style={{flexGrow: 1}}>
                   <span style={{fontSize: "0.75rem", fontWeight: 700, color: "#000000", display: "block"}}>Plumbing Service</span>
