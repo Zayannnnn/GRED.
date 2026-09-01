@@ -23,7 +23,7 @@ function Contact() {
 
         {/* Consolidated Pre-rendered Illustration Image */}
         <div className="showcase-image-container">
-          <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779447195/file_00000000fe6071f7bef2d7571a211aa5_ncffqi.png" alt="GRED Marketplace Showcase" className="showcase-main-img" />
+          <img src="https://res.cloudinary.com/dhxmwk5of/image/upload/q_auto/f_auto/v1779447195/file_00000000fe6071f7bef2d7571a211aa5_ncffqi.png" alt="GRED Marketplace Showcase" className="showcase-main-img" loading="lazy" decoding="async" width="800" height="600" />
         </div>
 
         {/* App Store + Play Store Badge Buttons (Centered directly below the illustration on all viewports) */}
@@ -42,7 +42,7 @@ function Contact() {
           </a>
 
           {/* Google Play Link */}
-          <a href="javascript:void(0)" className="store-badge-btn" id="showcase-btn-googleplay" aria-label="Get it on Google Play">
+          <a href="https://play.google.com/store/apps/details?id=com.gredapp.mobile" target="_blank" rel="noopener noreferrer" className="store-badge-btn" id="showcase-btn-googleplay" aria-label="Get it on Google Play">
             <div className="store-badge-icon">
               <svg viewBox="0 0 512 512" fill="currentColor" style={{width: "24px", height: "24px"}}>
                 <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
@@ -92,4 +92,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default React.memo(Contact);

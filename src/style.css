@@ -63,6 +63,22 @@ body {
   z-index: 10;
 }
 
+/* Performance optimization: Content-visibility for below-the-fold sections to skip rendering work */
+#about,
+#services,
+#how-it-works,
+#why-choose,
+#app-features,
+#trust-safety,
+#testimonials,
+#stats,
+#faq,
+#contact,
+.footer-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
 /* Fixed Background System */
 .bg-glow {
   position: fixed;
@@ -3985,7 +4001,7 @@ body.nav-open {
 .faq-answer {
   padding: 0 28px 28px !important;
   font-size: 0.96rem !important;
-  color: #475569 !important;
+  color: #4B5563 !important;
   line-height: 1.68 !important;
   font-weight: 550 !important;
   opacity: 0 !important;
@@ -4948,6 +4964,36 @@ body.nav-open {
     padding: 0 20px 22px !important;
     font-size: 0.9rem !important;
     line-height: 1.58 !important;
+  }
+
+  /* Low-RAM / Mobile GPU Optimization: Lighten blur shaders to preserve 60fps scrolling */
+  .glass-panel,
+  .faq-item,
+  .service-card,
+  .testimonial-card,
+  .feature-card,
+  .about-mini-card {
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+  }
+  
+  /* Optimize offscreen keyframe particle draw calls on mobile */
+  .card-particles,
+  .services-dots-grid,
+  .testimonial-particle,
+  .faq-particle,
+  .stats-dots-container {
+    contain: strict;
+  }
+}
+
+/* Reduced motion preference for accessibility and battery conservation */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

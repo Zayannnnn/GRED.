@@ -56,7 +56,7 @@ function FAQ() {
         {faqData.map((item, idx) => {
           const isOpen = !!openStates[idx];
           return (
-            <div key={idx} className="faq-item glass-panel" id={`faq-item-${idx + 1}`}>
+            <div key={idx} className={`faq-item glass-panel ${isOpen ? 'active' : ''}`} id={`faq-item-${idx + 1}`}>
               <div 
                 className={`faq-header ${isOpen ? 'active' : ''}`} 
                 id={`faq-header-${idx + 1}`} 
@@ -96,4 +96,4 @@ function FAQ() {
   );
 }
 
-export default FAQ;
+export default React.memo(FAQ);

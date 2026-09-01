@@ -60,4 +60,4 @@ function Navbar({ isMenuOpen, setIsMenuOpen }) {
   );
 }
 
-export default Navbar;
+export default React.memo(Navbar);

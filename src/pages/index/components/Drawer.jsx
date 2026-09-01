@@ -77,4 +77,4 @@ function Drawer({ isMenuOpen, setIsMenuOpen }) {
   );
 }
 
-export default Drawer;
+export default React.memo(Drawer);

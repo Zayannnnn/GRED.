@@ -3,7 +3,8 @@ import React, { useMemo } from 'react';
 function Particles() {
   const particlesList = useMemo(() => {
     const list = [];
-    const count = 50;
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+    const count = isMobile ? 18 : 45;
     for (let i = 0; i < count; i++) {
       const isAmber = Math.random() < 0.35;
       const size = Math.random() * 4 + 2; // 2px to 6px
@@ -36,7 +37,7 @@ function Particles() {
   }, []);
 
   return (
-    <div className="particles" id="particles">
+    <div className="particles" id="particles" style={{ contain: 'strict', pointerEvents: 'none' }}>
       {particlesList.map((p, idx) => (
         <div key={idx} className={p.className} style={p.style} />
       ))}

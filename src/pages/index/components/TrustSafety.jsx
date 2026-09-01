@@ -131,4 +131,4 @@ function TrustSafety() {
   );
 }
 
-export default TrustSafety;
+export default React.memo(TrustSafety);

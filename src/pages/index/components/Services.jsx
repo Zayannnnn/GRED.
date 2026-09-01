@@ -61,7 +61,7 @@ function Services() {
       </span>
       <div className="service-card-icon-wrap">
         <div className="service-card-glow"></div>
-        <img src={item.icon} alt={`${item.title} Icon`} />
+        <img src={item.icon} alt={`${item.title} Icon`} loading="lazy" decoding="async" width="80" height="80" />
       </div>
       <div className="service-card-info">
         <h3 className="service-card-title">{item.title}</h3>
@@ -80,18 +80,20 @@ function Services() {
   );
 
   useEffect(() => {
+    const container = containerRef.current;
     const wrapper = wrapperRef.current;
     const grid = gridRef.current;
-    if (!wrapper || !grid) return;
+    if (!wrapper || !grid || !container) return;
 
     let animationFrameId = null;
-    let scrollPos = 0;
+    let scrollPos = wrapper.scrollLeft || 0;
+    let isVisible = false;
     const speed = 0.45; // scroll speed per frame
 
-    // Main scroll frame update loop
+    // Main scroll frame update loop (only active when in viewport and not paused)
     const scroll = () => {
-      if (pausedRef.current) {
-        animationFrameId = requestAnimationFrame(scroll);
+      if (!isVisible || pausedRef.current) {
+        animationFrameId = null;
         return;
       }
 
@@ -107,21 +109,41 @@ function Services() {
       animationFrameId = requestAnimationFrame(scroll);
     };
 
+    const resumeScroll = () => {
+      pausedRef.current = false;
+      if (isVisible && !animationFrameId) {
+        animationFrameId = requestAnimationFrame(scroll);
+      }
+    };
+
     // Pause on interactions
     const handleMouseEnter = () => { pausedRef.current = true; };
-    const handleMouseLeave = () => { pausedRef.current = false; };
+    const handleMouseLeave = () => { resumeScroll(); };
     const handleTouchStart = () => { pausedRef.current = true; };
-    const handleTouchEnd = () => { pausedRef.current = false; };
+    const handleTouchEnd = () => { resumeScroll(); };
 
     wrapper.addEventListener('mouseenter', handleMouseEnter, { passive: true });
     wrapper.addEventListener('mouseleave', handleMouseLeave, { passive: true });
     wrapper.addEventListener('touchstart', handleTouchStart, { passive: true });
     wrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
 
-    // Start auto-scroll RAF loop
-    animationFrameId = requestAnimationFrame(scroll);
+    // Viewport IntersectionObserver to start/stop the RAF loop
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !pausedRef.current && !animationFrameId) {
+          animationFrameId = requestAnimationFrame(scroll);
+        } else if (!isVisible && animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = null;
+        }
+      });
+    }, { threshold: 0.05 });
+
+    observer.observe(container);
 
     return () => {
+      observer.disconnect();
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
       wrapper.removeEventListener('mouseenter', handleMouseEnter);
       wrapper.removeEventListener('mouseleave', handleMouseLeave);
@@ -158,4 +180,4 @@ function Services() {
   );
 }
 
-export default Services;
+export default React.memo(Services);

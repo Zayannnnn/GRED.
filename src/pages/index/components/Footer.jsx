@@ -8,7 +8,7 @@ function Footer() {
         {/* Col 1: Brand details */}
         <div className="footer-brand">
           <h4 id="footer-logo-header">
-            <img src="/logo.png" alt="GRED Logo" className="footer-brand-logo" />
+            <img src="/logo.png" alt="GRED Logo" className="footer-brand-logo" loading="lazy" decoding="async" width="36" height="36" />
             GRED
           </h4>
           <p>A premium on-demand hyperlocal marketplace bringing vetted, expert home solutions right to your doorstep.</p>
@@ -83,4 +83,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default React.memo(Footer);

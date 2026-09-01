@@ -48,35 +48,46 @@ function Hero() {
     let animationFrameId = null;
     let heroHeight = heroSection.offsetHeight || window.innerHeight;
 
+    // Wake up animation loop on demand
+    const requestTick = () => {
+      if (isVisible && !animationFrameId) {
+        animationFrameId = requestAnimationFrame(animateHero);
+      }
+    };
+
     // Handle mouse movement coordinates
     const handlePointerMove = (event) => {
       const rect = heroSection.getBoundingClientRect();
       pointerX = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
       pointerY = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+      requestTick();
     };
 
     const handlePointerLeave = () => {
       pointerX = 0;
       pointerY = 0;
+      requestTick();
     };
 
     // Handle scroll coordinate updates
     const handleScroll = () => {
       heroScrollTilt = Math.min(1, Math.max(0, window.scrollY / heroHeight));
+      requestTick();
     };
 
     // Handle resize configurations
     const handleResize = () => {
       heroHeight = heroSection.offsetHeight || window.innerHeight;
+      requestTick();
     };
 
     // IntersectionObserver to start/stop the RAF loop
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         isVisible = entry.isIntersecting;
-        if (isVisible && !animationFrameId) {
-          animationFrameId = requestAnimationFrame(animateHero);
-        } else if (!isVisible && animationFrameId) {
+        if (isVisible) {
+          requestTick();
+        } else if (animationFrameId) {
           cancelAnimationFrame(animationFrameId);
           animationFrameId = null;
         }
@@ -85,9 +96,9 @@ function Hero() {
 
     observer.observe(heroSection);
 
-    // Bind event listeners
-    heroSection.addEventListener("pointermove", handlePointerMove);
-    heroSection.addEventListener("pointerleave", handlePointerLeave);
+    // Bind event listeners with passive flags
+    heroSection.addEventListener("pointermove", handlePointerMove, { passive: true });
+    heroSection.addEventListener("pointerleave", handlePointerLeave, { passive: true });
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleResize, { passive: true });
 
@@ -97,7 +108,7 @@ function Hero() {
     // Lerping helper
     const lerp = (start, end, factor) => start + (end - start) * factor;
 
-    // Animation frame execution loop
+    // Animation frame execution loop with smart idle sleeping
     function animateHero() {
       if (!isVisible) {
         animationFrameId = null;
@@ -109,13 +120,19 @@ function Hero() {
       const rotateY = currentX * 6;
       const translateY = heroScrollTilt * -18;
       
-      // Mutate styling directly to achieve maximum compositor frame rate and zero React rendering load
       heroCanvas.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(${currentX * 8}px, ${translateY + currentY * 8}px, 0)`;
-      animationFrameId = requestAnimationFrame(animateHero);
+
+      // Sleep RAF when motion has settled to save battery & CPU on mobile
+      const isMoving = Math.abs(currentX - pointerX) > 0.001 || Math.abs(currentY - pointerY) > 0.001;
+      if (isMoving) {
+        animationFrameId = requestAnimationFrame(animateHero);
+      } else {
+        animationFrameId = null;
+      }
     }
 
-    // Start initial frame loop
-    animationFrameId = requestAnimationFrame(animateHero);
+    // Start initial frame
+    requestTick();
 
     return () => {
       observer.disconnect();
@@ -149,7 +166,7 @@ function Hero() {
                 <strong>App Store</strong>
               </div>
             </a>
-            <a href="javascript:void(0)" className="app-badge google-play" aria-label="Get it on Google Play">
+            <a href="https://play.google.com/store/apps/details?id=com.gredapp.mobile" target="_blank" rel="noopener noreferrer" className="app-badge google-play" aria-label="Get it on Google Play">
               <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
               </svg>
@@ -320,7 +337,7 @@ function Hero() {
 
                 <article className="hero-card hero-card-booking">
                   <div className="booking-icon">
-                    <img src="/20260304_121316 copy.png" alt="GRED Logo" />
+                    <img src="/20260304_121316 copy.png" alt="GRED Logo" width="32" height="32" decoding="async" />
                   </div>
                   <div className="booking-text-wrap">
                     <span>New booking</span>
@@ -346,4 +363,4 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default React.memo(Hero);

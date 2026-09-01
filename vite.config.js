@@ -6,6 +6,8 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [react()],
   build: {
+    cssCodeSplit: true,
+    chunkSizeWarningLimit: 600,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
@@ -18,6 +20,13 @@ export default defineConfig({
         investSuccess: resolve(__dirname, 'invest-success/index.html'),
         providerThankyou: resolve(__dirname, 'provider-thankyou/index.html'),
         deleteDataSuccess: resolve(__dirname, 'delete-data-success/index.html')
+      },
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+            return 'vendor-react';
+          }
+        }
       }
     }
   }

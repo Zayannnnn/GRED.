@@ -204,4 +204,4 @@ function WhyChoose() {
   );
 }
 
-export default WhyChoose;
+export default React.memo(WhyChoose);

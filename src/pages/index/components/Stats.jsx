@@ -32,27 +32,46 @@ function Stats() {
     observer.observe(section);
 
     function startCounters() {
-      const duration = 2000;
-      const stepTime = 16;
-      const steps = duration / stepTime;
+      const duration = 1800; // 1.8s smooth counting
+      let startTime = null;
+      let rafId = null;
 
-      statsData.forEach(stat => {
-        const increment = stat.target / steps;
-        let current = 0;
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= stat.target) {
-            setCounts(prev => ({ ...prev, [stat.key]: stat.target }));
-            clearInterval(timer);
-          } else {
-            setCounts(prev => ({ ...prev, [stat.key]: Math.floor(current) }));
-          }
-        }, stepTime);
-      });
+      const step = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        
+        // Easing out cubic
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+
+        setCounts({
+          customers: Math.floor(easeOut * 500),
+          completed: Math.floor(easeOut * 1000),
+          providers: Math.floor(easeOut * 250),
+          cities: Math.floor(easeOut * 24)
+        });
+
+        if (progress < 1) {
+          rafId = requestAnimationFrame(step);
+        } else {
+          setCounts({
+            customers: 500,
+            completed: 1000,
+            providers: 250,
+            cities: 24
+          });
+        }
+      };
+
+      rafId = requestAnimationFrame(step);
+      return () => {
+        if (rafId) cancelAnimationFrame(rafId);
+      };
     }
 
+    let cleanupCounters = null;
     return () => {
       observer.disconnect();
+      if (cleanupCounters) cleanupCounters();
     };
   }, []);
 
@@ -91,4 +110,4 @@ function Stats() {
   );
 }
 
-export default Stats;
+export default React.memo(Stats);
