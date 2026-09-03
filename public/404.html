@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opening GRED...</title>
+  <script>
+    (function() {
+      var path = window.location.pathname + window.location.search;
+      var cleanPath = path.replace(/^\/+/, '');
+      var intentUrl = "intent://" + window.location.host + "/" + cleanPath + "#Intent;scheme=https;package=com.gredapp.mobile;end";
+      if (/android/i.test(navigator.userAgent)) {
+        window.location.href = intentUrl;
+      }
+    })();
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #FFFDF0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      color: #18181b;
+    }
+    .card {
+      background: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+      max-width: 360px;
+      width: 88%;
+      border: 1px solid #fef3c7;
+    }
+    .logo-badge {
+      width: 64px;
+      height: 64px;
+      background: #FFD54F;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 28px;
+      font-weight: 900;
+    }
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin: 0 0 0.5rem;
+    }
+    p {
+      font-size: 0.875rem;
+      color: #71717a;
+      margin: 0 0 1.75rem;
+      line-height: 1.5;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.875rem 1rem;
+      border-radius: 0.875rem;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      text-decoration: none;
+      transition: transform 0.1s ease;
+      cursor: pointer;
+    }
+    .btn:active {
+      transform: scale(0.98);
+    }
+    .btn-primary {
+      background: #FFD54F;
+      color: #000000;
+      margin-bottom: 0.75rem;
+    }
+    .btn-secondary {
+      background: #18181b;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo-badge">G.</div>
+    <h1>Opening in GRED</h1>
+    <p>Connecting you to trusted on-demand home services...</p>
+    <a id="btn-open" class="btn btn-primary" href="#">Open in GRED App</a>
+    <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.gredapp.mobile" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+  </div>
+  <script>
+    (function() {
+      var path = window.location.pathname + window.location.search;
+      var cleanPath = path.replace(/^\/+/, '');
+      var intentUrl = "intent://" + window.location.host + "/" + cleanPath + "#Intent;scheme=https;package=com.gredapp.mobile;end";
+      document.getElementById('btn-open').href = intentUrl;
+    })();
+  </script>
+</body>
+</html>

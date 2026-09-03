@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.gredapp.mobile",
+      "sha256_cert_fingerprints": [
+        "28:70:5D:5A:82:4B:14:56:34:DB:B6:AD:05:B8:0E:0D:84:8E:CE:81:1A:29:08:FB:AA:37:71:EC:6E:55:66:80"
+      ]
+    }
+  }
+]
